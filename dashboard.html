@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- META TAGS BÁSICAS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO E DESCRIÇÃO ESPECÍFICOS DESTA PÁGINA -->
+    <title>Dashboard - CarbonTracker | Monitoramento em Tempo Real</title>
+    <meta name="description" content="Dashboard interativo com dados em tempo real de emissões de carbono, relatórios detalhados e insights inteligentes.">
+    
+    <!-- LINKS EXTERNOS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ESTILOS CSS ESPECÍFICOS PARA O DASHBOARD -->
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA GRÁFICOS E DASHBOARD ===== */
+        
+        /* Container principal do dashboard */
+        .conteiner-dashboard {
+            padding: 2rem 0;
+        }
+        
+        /* Grid responsivo para widgets */
+        .grade-dashboard {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Layout específico para diferentes seções */
+        .linha-estatisticas {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        .linha-principal {
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        /* Cards do dashboard */
+        .card-dashboard {
+            background: var(--branco);
+            border-radius: var(--raio-borda);
+            padding: 1.5rem;
+            box-shadow: var(--sombra);
+            border-left: 4px solid var(--cor-secundaria);
+        }
+        
+        /* Cabeçalho dos cards */
+        .cabecalho-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .titulo-card {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cor-primaria);
+        }
+        
+        /* Indicadores de tendência */
+        .indicador-tendencia {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .tendencia-alta {
+            color: var(--perigo);
+        }
+        
+        .tendencia-baixa {
+            color: var(--sucesso);
+        }
+        
+        .tendencia-estavel {
+            color: var(--texto-cinza);
+        }
+        
+        /* Área do gráfico */
+        .area-grafico {
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Gráfico simulado */
+        .placeholder-grafico {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding: 1rem;
+        }
+        
+        /* Lista de atividades */
+        .lista-atividades {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .item-atividade {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        
+        .item-atividade:hover {
+            background-color: var(--verde-claro);
+        }
+        
+        .icone-atividade {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .info-atividade h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--texto-escuro);
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-atividade p {
+            font-size: 0.8rem;
+            color: var(--texto-cinza);
+            margin: 0;
+        }
+        
+        .tempo-atividade {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: var(--texto-cinza);
+        }
+        
+        /* Filtros e controles */
+        .controles-dashboard {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .grupo-controle {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .rotulo-controle {
+            font-weight: 500;
+            color: var(--texto-escuro);
+            font-size: 0.9rem;
+        }
+        
+        select.controle-formulario {
+            width: auto;
+            min-width: 150px;
+        }
+
+        /* Área de usuário no header */
+        .area-usuario {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-usuario {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--raio-borda);
+            color: var(--branco);
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .info-usuario:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .avatar-usuario {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--cor-destaque);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Loading spinner */
+        .carregando {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--cor-secundaria);
+            border-radius: 50%;
+            animation: girar 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes girar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsividade para o dashboard */
+        @media (max-width: 768px) {
+            .linha-principal {
+                grid-template-columns: 1fr;
+            }
+            
+            .controles-dashboard {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .grupo-controle {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            select.controle-formulario {
+                width: 100%;
+            }
+
+            .area-usuario {
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER PADRÃO ===== -->
+    <header class="cabecalho">
+        <div class="conteiner-cabecalho">
+            <a href="index.html" class="logo">
+                <div class="icone-logo"><i class="fas fa-leaf"></i></div>
+                <span>Carbon Techo</span>
+            </a>
+            
+            <nav>
+                <button class="botao-menu-mobile" onclick="alternarMenuMobile()"><i class="fas fa-bars"></i></button>
+                <ul id="menu-navegacao">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html" class="ativo"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </nav>
+
+            
+        </div>
+    </header>
+
+    <main class="principal">
+        <!-- ===== SEÇÃO HERO DO DASHBOARD ===== -->
+        <section class="hero" style="padding: 2rem 0;">
+            <div class="conteiner">
+                <h1>Dashboard de Emissões</h1>
+                <p>Monitore em tempo real as emissões de carbono da sua empresa e acompanhe o progresso das suas metas sustentáveis.</p>
+            </div>
+        </section>
+
+        <!-- ===== ÁREA PRINCIPAL DO DASHBOARD ===== -->
+        <section class="conteiner-dashboard">
+            <div class="conteiner">
+                
+                <!-- CONTROLES E FILTROS -->
+                <div class="controles-dashboard">
+                    <div class="grupo-controle">
+                        <span class="rotulo-controle">Período:</span>
+                        <select class="controle-formulario" id="selecao-periodo" onchange="atualizarDashboard()">
+                            <option value="hoje">Hoje</option>
+                            <option value="semana">Esta Semana</option>
+                            <option value="mes" selected>Este Mês</option>
+                            <option value="trimestre">Este Trimestre</option>
+                            <option value="ano">Este Ano</option>
+                        </select>
+                    </div>
+                    
+                    <div class="grupo-controle">
+                        <span class="rotulo-controle">Unidade:</span>
+                        <select class="controle-formulario" id="selecao-unidade" onchange="atualizarUnidades()">
+                            <option value="kg">kg CO₂</option>
+                            <option value="ton" selected>Toneladas CO₂</option>
+                            <option value="mt">Mil Toneladas CO₂</option>
+                        </select>
+                    </div>
+                    
+                    <div class="grupo-controle">
+                        <button class="botao botao-secundario" onclick="exportarRelatorio()">
+                            <i class="fas fa-download"></i> Exportar Relatório
+                        </button>
+                    </div>
+                    
+                    <div class="grupo-controle" style="margin-left: auto;">
+                        <span id="ultima-atualizacao" style="font-size: 0.9rem; color: var(--texto-cinza);">
+                            Última atualização: <span id="tempo-atualizacao">agora</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Loading Spinner -->
+                <div class="carregando" id="carregando"></div>
+
+                <!-- ESTATÍSTICAS PRINCIPAIS -->
+                <div class="grade-dashboard linha-estatisticas">
+                    
+                    <!-- ESTATÍSTICA 1: EMISSÕES TOTAIS -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica" id="emissoes-totais">1,247.5</span>
+                        <div class="rotulo-estatistica">Toneladas CO₂ (Mês)</div>
+                        <div class="indicador-tendencia tendencia-baixa">
+                            <i class="fas fa-arrow-down"></i> <span id="tendencia-total">8.3%</span> vs mês anterior
+                        </div>
+                    </div>
+                    
+                    <!-- ESTATÍSTICA 2: META DO MÊS -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica" id="meta-mensal">78%</span>
+                        <div class="rotulo-estatistica">Meta do Mês</div>
+                        <div class="indicador-tendencia tendencia-alta">
+                            <i class="fas fa-arrow-up"></i> <span id="tendencia-meta">12%</span> progresso
+                        </div>
+                    </div>
+                    
+                    <!-- ESTATÍSTICA 3: ECONOMIA ALCANÇADA -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica" id="economia">R$ 89,340</span>
+                        <div class="rotulo-estatistica">Economia Alcançada</div>
+                        <div class="indicador-tendencia tendencia-baixa">
+                            <i class="fas fa-arrow-down"></i> <span id="tendencia-economia">15.7%</span> redução de custos
+                        </div>
+                    </div>
+                    
+                    <!-- ESTATÍSTICA 4: PONTOS MONITORADOS -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica" id="pontos-monitoramento">47</span>
+                        <div class="rotulo-estatistica">Pontos Monitorados</div>
+                        <div class="indicador-tendencia tendencia-estavel">
+                            <i class="fas fa-minus"></i> <span id="tendencia-pontos">100%</span> operacionais
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ÁREA PRINCIPAL: GRÁFICOS E ATIVIDADES -->
+                <div class="grade-dashboard linha-principal">
+                    
+                    <!-- GRÁFICO PRINCIPAL DE EMISSÕES -->
+                    <div class="card-dashboard">
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-card">Emissões por Período</h3>
+                            <div class="indicador-tendencia tendencia-baixa">
+                                Redução de 23% este trimestre
+                            </div>
+                        </div>
+                        
+                        <!-- ÁREA DO GRÁFICO -->
+                        <div class="area-grafico">
+                            <div class="placeholder-grafico">
+                                <!-- SIMULAÇÃO DE GRÁFICO DE LINHA -->
+                                <svg width="100%" height="100%" viewBox="0 0 400 200" style="background: transparent;">
+                                    <!-- GRID DO GRÁFICO -->
+                                    <defs>
+                                        <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                                            <path d="M 40 0 L 0 0 0 20" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#grid)" />
+                                    
+                                    <!-- LINHA PRINCIPAL DO GRÁFICO -->
+                                    <polyline fill="none" stroke="var(--cor-secundaria)" stroke-width="3"
+                                        points="20,150 70,140 120,120 170,100 220,90 270,85 320,75 370,70"/>
+                                    
+                                    <!-- ÁREA PREENCHIDA -->
+                                    <polygon fill="rgba(74, 155, 62, 0.1)" stroke="none"
+                                        points="20,150 70,140 120,120 170,100 220,90 270,85 320,75 370,70 370,180 20,180"/>
+                                    
+                                    <!-- PONTOS DE DADOS -->
+                                    <circle cx="20" cy="150" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="70" cy="140" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="120" cy="120" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="170" cy="100" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="220" cy="90" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="270" cy="85" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="320" cy="75" r="4" fill="var(--cor-secundaria)"/>
+                                    <circle cx="370" cy="70" r="4" fill="var(--cor-destaque)"/>
+                                    
+                                    <!-- LABELS DOS MESES -->
+                                    <text x="20" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Jan</text>
+                                    <text x="70" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Fev</text>
+                                    <text x="120" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Mar</text>
+                                    <text x="170" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Abr</text>
+                                    <text x="220" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Mai</text>
+                                    <text x="270" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Jun</text>
+                                    <text x="320" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Jul</text>
+                                    <text x="370" y="195" text-anchor="middle" font-size="12" fill="var(--texto-cinza)">Ago</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PAINEL DE ATIVIDADES RECENTES -->
+                    <div class="card-dashboard">
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-card">Atividades Recentes</h3>
+                            <a href="#" style="color: var(--cor-secundaria); text-decoration: none; font-size: 0.9rem;">Ver todas</a>
+                        </div>
+                        
+                        <div class="lista-atividades">
+                            
+                            <!-- ATIVIDADE 1 -->
+                            <div class="item-atividade">
+                                <div class="icone-atividade" style="background: rgba(39, 174, 96, 0.1); color: var(--sucesso);">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="info-atividade">
+                                    <h4>Meta mensal atingida</h4>
+                                    <p>Setor de logística reduziu 15% das emissões</p>
+                                </div>
+                                <div class="tempo-atividade">2h</div>
+                            </div>
+                            
+                            <!-- ATIVIDADE 2 -->
+                            <div class="item-atividade">
+                                <div class="icone-atividade" style="background: rgba(243, 156, 18, 0.1); color: var(--aviso);">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="info-atividade">
+                                    <h4>Alerta de limite</h4>
+                                    <p>Fábrica A se aproxima do limite diário</p>
+                                </div>
+                                <div class="tempo-atividade">4h</div>
+                            </div>
+                            
+                            <!-- ATIVIDADE 3 -->
+                            <div class="item-atividade">
+                                <div class="icone-atividade" style="background: rgba(74, 155, 62, 0.1); color: var(--cor-secundaria);">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="info-atividade">
+                                    <h4>Relatório gerado</h4>
+                                    <p>Relatório semanal foi enviado por email</p>
+                                </div>
+                                <div class="tempo-atividade">1d</div>
+                            </div>
+                            
+                            <!-- ATIVIDADE 4 -->
+                            <div class="item-atividade">
+                                <div class="icone-atividade" style="background: rgba(231, 76, 60, 0.1); color: var(--perigo);">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="info-atividade">
+                                    <h4>Sensor offline</h4>
+                                    <p>Sensor 07 - Armazém B precisa de manutenção</p>
+                                </div>
+                                <div class="tempo-atividade">2d</div>
+                            </div>
+                            
+                            <!-- ATIVIDADE 5 -->
+                            <div class="item-atividade">
+                                <div class="icone-atividade" style="background: rgba(74, 155, 62, 0.1); color: var(--cor-secundaria);">
+                                    <i class="fas fa-sync"></i>
+                                </div>
+                                <div class="info-atividade">
+                                    <h4>Sistema atualizado</h4>
+                                    <p>Nova versão da plataforma instalada</p>
+                                </div>
+                                <div class="tempo-atividade">3d</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEGUNDA LINHA: DISTRIBUIÇÃO E COMPARATIVO -->
+                <div class="grade-dashboard linha-principal">
+                    
+                    <!-- DISTRIBUIÇÃO POR SETOR -->
+                    <div class="card-dashboard">
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-card">Emissões por Setor</h3>
+                            <select class="controle-formulario" style="width: auto;" onchange="atualizarGraficoSecoes()">
+                                <option>Este mês</option>
+                                <option>Trimestre</option>
+                                <option>Ano</option>
+                            </select>
+                        </div>
+                        
+                        <!-- GRÁFICO DE PIZZA SIMULADO -->
+                        <div class="area-grafico" style="height: 250px;">
+                            <svg width="100%" height="100%" viewBox="0 0 300 200">
+                                <!-- CÍRCULO BASE -->
+                                <circle cx="150" cy="100" r="70" fill="transparent" stroke="#e0e0e0" stroke-width="2"/>
+                                
+                                <!-- FATIAS DO GRÁFICO (usando stroke-dasharray para simular pizza) -->
+                                <!-- Logística - 40% -->
+                                <circle cx="150" cy="100" r="60" fill="transparent" 
+                                        stroke="var(--cor-secundaria)" stroke-width="20"
+                                        stroke-dasharray="150 225" stroke-dashoffset="0" transform="rotate(-90 150 100)"/>
+                                
+                                <!-- Produção - 35% -->
+                                <circle cx="150" cy="100" r="60" fill="transparent" 
+                                        stroke="var(--cor-destaque)" stroke-width="20"
+                                        stroke-dasharray="131 244" stroke-dashoffset="-150" transform="rotate(-90 150 100)"/>
+                                
+                                <!-- Energia - 25% -->
+                                <circle cx="150" cy="100" r="60" fill="transparent" 
+                                        stroke="var(--cor-primaria)" stroke-width="20"
+                                        stroke-dasharray="94 281" stroke-dashoffset="-281" transform="rotate(-90 150 100)"/>
+                                
+                                <!-- LEGENDA -->
+                                <rect x="10" y="170" width="12" height="12" fill="var(--cor-secundaria)"/>
+                                <text x="28" y="181" font-size="12" fill="var(--texto-escuro)">Logística (40%)</text>
+                                
+                                <rect x="110" y="170" width="12" height="12" fill="var(--cor-destaque)"/>
+                                <text x="128" y="181" font-size="12" fill="var(--texto-escuro)">Produção (35%)</text>
+                                
+                                <rect x="220" y="170" width="12" height="12" fill="var(--cor-primaria)"/>
+                                <text x="238" y="181" font-size="12" fill="var(--texto-escuro)">Energia (25%)</text>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- COMPARATIVO E METAS -->
+                    <div class="card-dashboard">
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-card">Progresso das Metas</h3>
+                            <span style="color: var(--cor-secundaria); font-size: 0.9rem;">Meta anual: -30%</span>
+                        </div>
+                        
+                        <!-- BARRAS DE PROGRESSO -->
+                        <div style="padding: 1rem 0;">
+                            
+                            <!-- META MENSAL -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span style="font-weight: 500; color: var(--texto-escuro);">Meta Mensal</span>
+                                    <span style="color: var(--sucesso); font-weight: 600;" id="progresso-mensal">78%</span>
+                                </div>
+                                <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: linear-gradient(90deg, var(--sucesso) 0%, var(--cor-destaque) 100%); height: 100%; width: 78%; transition: width 0.5s ease;" id="barra-mensal"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- META TRIMESTRAL -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span style="font-weight: 500; color: var(--texto-escuro);">Meta Trimestral</span>
+                                    <span style="color: var(--cor-secundaria); font-weight: 600;" id="progresso-trimestral">65%</span>
+                                </div>
+                                <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%); height: 100%; width: 65%; transition: width 0.5s ease;" id="barra-trimestral"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- META ANUAL -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span style="font-weight: 500; color: var(--texto-escuro);">Meta Anual</span>
+                                    <span style="color: var(--aviso); font-weight: 600;" id="progresso-anual">42%</span>
+                                </div>
+                                <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: linear-gradient(90deg, var(--aviso) 0%, var(--cor-destaque) 100%); height: 100%; width: 42%; transition: width 0.5s ease;" id="barra-anual"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- RESUMO DAS METAS -->
+                        <div style="background: var(--verde-claro); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                            <h4 style="color: var(--cor-primaria); margin-bottom: 0.5rem; font-size: 1rem;">Resumo</h4>
+                            <p style="color: var(--texto-escuro); font-size: 0.9rem; margin: 0;" id="texto-resumo">
+                                Você está no caminho certo! Continue com as ações atuais para atingir a meta anual de redução de 30%.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALERTAS E RECOMENDAÇÕES -->
+                <div class="grade-dashboard" style="grid-template-columns: 1fr;">
+                    <div class="card-dashboard">
+                        <div class="cabecalho-card">
+                            <h3 class="titulo-card">Alertas e Recomendações</h3>
+                            <button class="botao botao-secundario" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                                Ver IA Insights
+                            </button>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                            
+                            <!-- ALERTA 1 -->
+                            <div class="alerta alerta-aviso">
+                                <strong><i class="fas fa-exclamation-triangle"></i> Atenção:</strong> As emissões da Fábrica A aumentaram 12% esta semana. 
+                                Recomendamos verificar os equipamentos de filtragem.
+                            </div>
+                            
+                            <!-- ALERTA 2 -->
+                            <div class="alerta alerta-sucesso">
+                                <strong><i class="fas fa-check-circle"></i> Parabéns:</strong> O setor de logística superou a meta mensal! 
+                                Continue otimizando as rotas de entrega.
+                            </div>
+                            
+                            <!-- ALERTA 3 -->
+                            <div class="alerta alerta-perigo">
+                                <strong><i class="fas fa-exclamation-circle"></i> Crítico:</strong> Sensor 07 está offline há 2 dias. 
+                                Agende manutenção urgente para manter o monitoramento.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER PADRÃO ===== -->
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <div class="secao-rodape">
+                <h3>CarbonTracker</h3>
+                <p>Líder em soluções de monitoramento de carbono, ajudando empresas a alcançar suas metas de sustentabilidade através de tecnologia inovadora.</p>
+                <div class="links-sociais">
+                    <a href="#" class="link-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="link-social"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="secao-rodape">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="secao-rodape">
+                <h3>Nossos Serviços</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cloud"></i> Monitoramento de CO₂</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios Personalizados</a></li>
+                    <li><a href="#"><i class="fas fa-hands-helping"></i> Consultoria Sustentável</a></li>
+                    <li><a href="#"><i class="fas fa-award"></i> Certificações Ambientais</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 4: CONTATO -->
+            <div class="secao-rodape">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
+                <p><i class="fas fa-phone"></i> (19) 99835-5378 </p>
+                <p><i class="fas fa-envelope"></i> carbontecho@gmail.com</p>
+                <p><i class="fas fa-globe"></i> www.carbontecho.com.br</p>
+            </div>
+        </div>
+        </div>
+        
+        <div class="rodape-inferior">
+            <p>&copy; 2025 Carbon Techo - ETEC Polivalente Americana - Desenvolvido para um futuro sustentável.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        /* ===== FUNÇÕES BÁSICAS REUTILIZADAS ===== */
+        function alternarMenuMobile() {
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            menuNavegacao.classList.toggle('mostrar');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const linksNavegacao = document.querySelectorAll('nav a');
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            
+            linksNavegacao.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuNavegacao.classList.remove('mostrar');
+                });
+            });
+
+            // Inicializar dashboard
+            inicializarDashboard();
+            verificarLoginUsuario();
+        });
+
+        /* ===== FUNÇÕES ESPECÍFICAS DO DASHBOARD ===== */
+        
+        // SIMULAÇÃO DE DADOS EM TEMPO REAL
+        let dadosDashboard = {
+            emissoesTotais: 1247.5,
+            metaMensal: 78,
+            economia: 89340,
+            pontosMonitoramento: 47,
+            tendencias: {
+                total: -8.3,
+                meta: 12,
+                economia: -15.7,
+                pontos: 100
+            }
+        };
+
+        // FUNÇÃO PARA INICIALIZAR DASHBOARD
+        function inicializarDashboard() {
+            atualizarUltimaAtualizacao();
+            // Simular atualizações automáticas a cada 30 segundos
+            setInterval(atualizarUltimaAtualizacao, 30000);
+        }
+
+        // FUNÇÃO PARA VERIFICAR LOGIN DO USUÁRIO
+        function verificarLoginUsuario() {
+            const dadosUsuario = JSON.parse(localStorage.getItem('usuario_carbontracker') || '{}');
+            const infoUsuario = document.getElementById('info-usuario');
+            const avatarUsuario = document.getElementById('avatar-usuario');
+            const nomeUsuario = document.getElementById('nome-usuario');
+
+            if (dadosUsuario.nome) {
+                // Usuário logado
+                const iniciais = dadosUsuario.nome.split(' ').map(n => n[0]).join('').toUpperCase();
+                avatarUsuario.textContent = iniciais;
+                nomeUsuario.textContent = dadosUsuario.nome;
+                infoUsuario.title = 'Clique para ver perfil';
+            } else {
+                // Usuário não logado
+                avatarUsuario.textContent = '?';
+                nomeUsuario.textContent = 'Fazer Login';
+                infoUsuario.title = 'Clique para fazer login';
+            }
+        }
+
+        // FUNÇÃO PARA ATUALIZAR DASHBOARD BASEADO NO PERÍODO
+        function atualizarDashboard() {
+            const periodo = document.getElementById('selecao-periodo').value;
+            
+            // SIMULAÇÃO DE CARREGAMENTO
+            mostrarCarregando();
+            
+            setTimeout(() => {
+                // SIMULAÇÃO DE DADOS DIFERENTES POR PERÍODO
+                switch(periodo) {
+                    case 'hoje':
+                        atualizarEstatisticas(41.2, 15, 2847, 47, {total: -2.1, meta: 8, economia: -12.3, pontos: 100});
+                        atualizarBarrasProgresso(15, 25, 10);
+                        break;
+                    case 'semana':
+                        atualizarEstatisticas(287.3, 45, 18450, 47, {total: -5.7, meta: 15, economia: -18.2, pontos: 100});
+                        atualizarBarrasProgresso(45, 35, 20);
+                        break;
+                    case 'mes':
+                        atualizarEstatisticas(1247.5, 78, 89340, 47, {total: -8.3, meta: 12, economia: -15.7, pontos: 100});
+                        atualizarBarrasProgresso(78, 65, 42);
+                        break;
+                    case 'trimestre':
+                        atualizarEstatisticas(3892.1, 65, 267890, 47, {total: -12.8, meta: 23, economia: -22.1, pontos: 100});
+                        atualizarBarrasProgresso(85, 65, 48);
+                        break;
+                    case 'ano':
+                        atualizarEstatisticas(14567.8, 42, 1234567, 47, {total: -18.5, meta: 42, economia: -28.9, pontos: 100});
+                        atualizarBarrasProgresso(92, 78, 42);
+                        break;
+                }
+                esconderCarregando();
+                atualizarUltimaAtualizacao();
+            }, 1200);
+        }
+
+        // FUNÇÃO PARA ATUALIZAR ESTATÍSTICAS
+        function atualizarEstatisticas(emissoes, meta, economia, pontos, tendencias) {
+            // ANIMAÇÃO DOS NÚMEROS
+            animarNumero('emissoes-totais', emissoes);
+            animarNumero('meta-mensal', meta, '', '%');
+            animarNumero('economia', economia, 'R$ ');
+            animarNumero('pontos-monitoramento', pontos);
+            
+            // ATUALIZAR TENDÊNCIAS
+            atualizarTendencia('tendencia-total', tendencias.total, '%');
+            atualizarTendencia('tendencia-meta', tendencias.meta, '%');
+            atualizarTendencia('tendencia-economia', tendencias.economia, '%');
+            atualizarTendencia('tendencia-pontos', tendencias.pontos, '%');
+        }
+
+        // FUNÇÃO PARA ANIMAR NÚMEROS
+        function animarNumero(idElemento, valorFinal, prefixo = '', sufixo = '') {
+            const elemento = document.getElementById(idElemento);
+            const valorInicial = parseFloat(elemento.textContent.replace(/[^\d.-]/g, '')) || 0;
+            const duracao = 1000;
+            const tempoInicial = performance.now();
+            
+            function animar(tempoAtual) {
+                const decorrido = tempoAtual - tempoInicial;
+                const progresso = Math.min(decorrido / duracao, 1);
+                
+                // EASING FUNCTION (ease out)
+                const easeOut = 1 - Math.pow(1 - progresso, 3);
+                const valorAtual = valorInicial + (valorFinal - valorInicial) * easeOut;
+                
+                // FORMATAÇÃO BASEADA NO TIPO DE VALOR
+                let valorFormatado;
+                if (prefixo === 'R$ ') {
+                    valorFormatado = prefixo + Math.floor(valorAtual).toLocaleString('pt-BR');
+                } else if (sufixo === '%') {
+                    valorFormatado = Math.floor(valorAtual) + sufixo;
+                } else {
+                    valorFormatado = valorAtual.toFixed(1);
+                }
+                
+                elemento.textContent = valorFormatado;
+                
+                if (progresso < 1) {
+                    requestAnimationFrame(animar);
+                }
+            }
+            
+            requestAnimationFrame(animar);
+        }
+
+        // FUNÇÃO PARA ATUALIZAR TENDÊNCIAS
+        function atualizarTendencia(idElemento, valor, sufixo) {
+            const elemento = document.getElementById(idElemento);
+            const elementoPai = elemento.closest('.indicador-tendencia');
+            
+            elemento.textContent = Math.abs(valor) + sufixo;
+            
+            // ATUALIZAR CLASSE E ÍCONE BASEADO NO VALOR
+            elementoPai.className = 'indicador-tendencia';
+            if (valor > 0) {
+                elementoPai.classList.add('tendencia-alta');
+                elementoPai.querySelector('i').className = 'fas fa-arrow-up';
+            } else if (valor < 0) {
+                elementoPai.classList.add('tendencia-baixa');
+                elementoPai.querySelector('i').className = 'fas fa-arrow-down';
+            } else {
+                elementoPai.classList.add('tendencia-estavel');
+                elementoPai.querySelector('i').className = 'fas fa-minus';
+            }
+        }
+
+        // FUNÇÃO PARA ATUALIZAR BARRAS DE PROGRESSO
+        function atualizarBarrasProgresso(mensal, trimestral, anual) {
+            const barraMensal = document.getElementById('barra-mensal');
+            const barraTrimestral = document.getElementById('barra-trimestral');
+            const barraAnual = document.getElementById('barra-anual');
+            
+            const progressoMensal = document.getElementById('progresso-mensal');
+            const progressoTrimestral = document.getElementById('progresso-trimestral');
+            const progressoAnual = document.getElementById('progresso-anual');
+
+            // Animar as barras
+            setTimeout(() => {
+                barraMensal.style.width = mensal + '%';
+                barraTrimestral.style.width = trimestral + '%';
+                barraAnual.style.width = anual + '%';
+                
+                progressoMensal.textContent = mensal + '%';
+                progressoTrimestral.textContent = trimestral + '%';
+                progressoAnual.textContent = anual + '%';
+            }, 500);
+
+            // Atualizar resumo baseado no progresso
+            const textoResumo = document.getElementById('texto-resumo');
+            if (anual < 30) {
+                textoResumo.textContent = 'Atenção! É necessário acelerar as ações para atingir a meta anual de -30%.';
+                textoResumo.style.color = 'var(--aviso)';
+            } else if (anual < 50) {
+                textoResumo.textContent = 'Você está no caminho certo! Continue com as ações atuais.';
+                textoResumo.style.color = 'var(--texto-escuro)';
+            } else {
+                textoResumo.textContent = 'Excelente progresso! Você está superando as expectativas.';
+                textoResumo.style.color = 'var(--sucesso)';
+            }
+        }
+
+        // FUNÇÃO PARA ALTERAR UNIDADES
+        function atualizarUnidades() {
+            const unidade = document.getElementById('selecao-unidade').value;
+            const periodo = document.getElementById('selecao-periodo').value;
+            
+            // SIMULAÇÃO DE CONVERSÃO DE UNIDADES
+            let multiplicador = 1;
+            let rotuloUnidade = 'Toneladas CO₂';
+            
+            switch(unidade) {
+                case 'kg':
+                    multiplicador = 1000;
+                    rotuloUnidade = 'kg CO₂';
+                    break;
+                case 'ton':
+                    multiplicador = 1;
+                    rotuloUnidade = 'Toneladas CO₂';
+                    break;
+                case 'mt':
+                    multiplicador = 0.001;
+                    rotuloUnidade = 'Mil Toneladas CO₂';
+                    break;
+            }
+            
+            // ATUALIZAR VALOR DAS EMISSÕES
+            const valorAtual = parseFloat(document.getElementById('emissoes-totais').textContent.replace(/[^\d.-]/g, ''));
+            const novoValor = (valorAtual / dadosDashboard.emissoesTotais) * dadosDashboard.emissoesTotais * multiplicador;
+            
+            animarNumero('emissoes-totais', novoValor);
+            
+            // ATUALIZAR LABEL
+            const rotulos = document.querySelectorAll('.rotulo-estatistica');
+            rotulos[0].textContent = rotuloUnidade + ` (${periodo === 'mes' ? 'Mês' : periodo === 'semana' ? 'Semana' : periodo === 'hoje' ? 'Hoje' : periodo === 'trimestre' ? 'Trimestre' : 'Ano'})`;
+        }
+
+        // FUNÇÃO PARA EXPORTAR RELATÓRIO
+        function exportarRelatorio() {
+            mostrarCarregando();
+            
+            // Simular tempo de geração do relatório
+            setTimeout(() => {
+                esconderCarregando();
+                
+                // Criar um blob com dados simulados
+                const dadosRelatorio = {
+                    empresa: 'Empresa Demo',
+                    periodo: document.getElementById('selecao-periodo').value,
+                    emissoes_totais: document.getElementById('emissoes-totais').textContent,
+                    meta_progresso: document.getElementById('meta-mensal').textContent,
+                    economia: document.getElementById('economia').textContent,
+                    pontos_monitoramento: document.getElementById('pontos-monitoramento').textContent,
+                    data_geracao: new Date().toLocaleString('pt-BR')
+                };
+                
+                const conteudoRelatorio = `
+RELATÓRIO DE EMISSÕES DE CARBONO - CARBONTRACKER
+================================================
+
+Empresa: ${dadosRelatorio.empresa}
+Período: ${dadosRelatorio.periodo}
+Data de Geração: ${dadosRelatorio.data_geracao}
+
+RESUMO EXECUTIVO
+----------------
+Emissões Totais: ${dadosRelatorio.emissoes_totais}
+Progresso da Meta: ${dadosRelatorio.meta_progresso}
+Economia Alcançada: ${dadosRelatorio.economia}
+Pontos de Monitoramento: ${dadosRelatorio.pontos_monitoramento}
+
+DISTRIBUIÇÃO POR SETOR
+---------------------
+• Logística: 40%
+• Produção: 35%
+• Energia: 25%
+
+RECOMENDAÇÕES
+-------------
+• Continue otimizando as rotas de logística
+• Verifique equipamentos de filtragem da Fábrica A
+• Mantenha o cronograma de manutenção dos sensores
+
+---
+Relatório gerado automaticamente pelo CarbonTracker
+                `;
+                
+                const blob = new Blob([conteudoRelatorio], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `relatorio_emissoes_${dadosRelatorio.periodo}_${new Date().toISOString().split('T')[0]}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                // Mostrar mensagem de sucesso
+                mostrarNotificacao('Relatório exportado com sucesso!', 'sucesso');
+            }, 2000);
+        }
+
+        // FUNÇÃO PARA MOSTRAR LOADING
+        function mostrarCarregando() {
+            const carregando = document.getElementById('carregando');
+            carregando.style.display = 'block';
+        }
+
+        // FUNÇÃO PARA ESCONDER LOADING
+        function esconderCarregando() {
+            const carregando = document.getElementById('carregando');
+            carregando.style.display = 'none';
+        }
+
+        // FUNÇÃO PARA ATUALIZAR ÚLTIMA ATUALIZAÇÃO
+        function atualizarUltimaAtualizacao() {
+            const agora = new Date();
+            const stringTempo = agora.toLocaleTimeString('pt-BR', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            document.getElementById('tempo-atualizacao').textContent = stringTempo;
+        }
+
+        // FUNÇÃO PARA MOSTRAR NOTIFICAÇÕES
+        function mostrarNotificacao(mensagem, tipo = 'info') {
+            // Criar elemento de notificação
+            const notificacao = document.createElement('div');
+            notificacao.className = `alerta alerta-${tipo}`;
+            notificacao.style.position = 'fixed';
+            notificacao.style.top = '100px';
+            notificacao.style.right = '20px';
+            notificacao.style.zIndex = '9999';
+            notificacao.style.minWidth = '300px';
+            notificacao.innerHTML = `<strong>${mensagem}</strong>`;
+            
+            document.body.appendChild(notificacao);
+            
+            // Remover após 3 segundos
+            setTimeout(() => {
+                if (notificacao.parentNode) {
+                    notificacao.parentNode.removeChild(notificacao);
+                }
+            }, 3000);
+        }
+
+        // FUNÇÃO PARA ATUALIZAR GRÁFICO DE SETORES
+        function atualizarGraficoSecoes() {
+            mostrarNotificacao('Gráfico de setores atualizado', 'sucesso');
+        }
+
+        // SIMULAÇÃO DE ATUALIZAÇÕES EM TEMPO REAL
+        setInterval(() => {
+            // Pequenas variações nos dados para simular tempo real
+            const variacao = (Math.random() - 0.5) * 0.1;
+            dadosDashboard.emissoesTotais += variacao;
+            
+            // Atualizar apenas se a página estiver visível
+            if (!document.hidden) {
+                atualizarUltimaAtualizacao();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

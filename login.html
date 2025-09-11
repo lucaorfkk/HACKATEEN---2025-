@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- META TAGS BÁSICAS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
+    <title>CarbonTracker - Área de Login</title>
+    <meta name="description" content="Acesse sua conta CarbonTracker para monitorar e gerenciar suas emissões de carbono.">
+    
+    <!-- LINK PARA CSS EXTERNO -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS INTERNO ESPECÍFICO PARA PÁGINA DE LOGIN -->
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA PÁGINA DE LOGIN ===== */
+        
+        /* CONTAINER PRINCIPAL DO LOGIN */
+        .conteiner-login {
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
+        }
+        
+        /* SEÇÃO DE ILUSTRAÇÃO (ESQUERDA) */
+        .secao-ilustracao {
+            flex: 1;
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            color: var(--branco);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            display: none; /* Oculto por padrão em mobile */
+        }
+        
+        /* CONTEÚDO DA ILUSTRAÇÃO */
+        .conteudo-ilustracao {
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        /* ÍCONE GRANDE DA ILUSTRAÇÃO */
+        .icone-grande {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: var(--branco);
+        }
+        
+        /* TÍTULO DA ILUSTRAÇÃO */
+        .conteudo-ilustracao h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* TEXTO DA ILUSTRAÇÃO */
+        .conteudo-ilustracao p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* SEÇÃO DO FORMULÁRIO (DIREITA) */
+        .secao-formulario {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: var(--branco);
+        }
+        
+        /* CARD DO FORMULÁRIO DE LOGIN */
+        .card-login {
+            width: 100%;
+            max-width: 400px;
+            background: var(--branco);
+            padding: 2.5rem;
+            border-radius: var(--raio-borda);
+            box-shadow: var(--sombra-hover);
+        }
+        
+        /* LOGO NO FORMULÁRIO */
+        .logo-login {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo-login .icone-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--branco);
+        }
+        
+        .logo-login h1 {
+            font-size: 1.8rem;
+            color: var(--cor-primaria);
+            font-weight: 700;
+        }
+        
+        /* TÍTULO DO FORMULÁRIO */
+        .titulo-formulario {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        /* GRUPO DE FORMULÁRIO COM ÍCONE */
+        .grupo-formulario-com-icone {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* ÍCONE DENTRO DO CAMPO */
+        .icone-campo {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--texto-cinza);
+            z-index: 1;
+        }
+        
+        /* CAMPO COM ÍCONE */
+        .controle-formulario-com-icone {
+            padding-left: 3rem;
+            width: 100%;
+        }
+        
+        /* CHECKBOX LEMBRAR-ME */
+        .lembrar-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lembrar-me input {
+            margin-right: 0.5rem;
+        }
+        
+        /* BOTÃO DE LOGIN */
+        .botao-login {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+            color: var(--branco);
+            border: none;
+            border-radius: var(--raio-borda);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicao);
+            box-shadow: var(--sombra);
+        }
+        
+        .botao-login:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+        }
+        
+        /* LINKS ADICIONAIS */
+        .links-adicionais {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .links-adicionais a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+        
+        .links-adicionais a:hover {
+            color: var(--cor-primaria);
+            text-decoration: underline;
+        }
+        
+        /* DIVISÓRIA */
+        .divisoria {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--texto-cinza);
+        }
+        
+        .divisoria::before,
+        .divisoria::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .divisoria span {
+            padding: 0 1rem;
+        }
+        
+        /* BOTÕES DE LOGIN SOCIAL */
+        .botoes-sociais {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .botao-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem;
+            border: 1px solid #E0E0E0;
+            border-radius: var(--raio-borda);
+            background: var(--branco);
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+        
+        .botao-social:hover {
+            background: var(--cinza-claro);
+        }
+        
+        .botao-social i {
+            margin-right: 0.5rem;
+        }
+        
+        /* MENSAGEM DE REGISTRO */
+        .mensagem-registro {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #E0E0E0;
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (min-width: 768px) {
+            .secao-ilustracao {
+                display: flex; /* Mostra a ilustração em tablets e desktops */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .secao-formulario {
+                padding: 1rem;
+            }
+            
+            .card-login {
+                padding: 2rem 1.5rem;
+            }
+            
+            .botoes-sociais {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== CONTAINER PRINCIPAL ===== -->
+    <div class="conteiner-login">
+        <!-- SEÇÃO DE ILUSTRAÇÃO (VISÍVEL APENAS EM DESKTOP) -->
+        <div class="secao-ilustracao">
+            <div class="conteudo-ilustracao">
+                <div class="icone-grande"><i class="fas fa-leaf"></i></div>
+                <h2>Junte-se à Revolução Verde</h2>
+                <p>Acesse sua conta para monitorar e reduzir suas emissões de carbono, contribuindo para um futuro mais sustentável.</p>
+            </div>
+        </div>
+        
+        <!-- SEÇÃO DO FORMULÁRIO -->
+        <div class="secao-formulario">
+            <div class="card-login">
+                <!-- LOGO -->
+                <div class="logo-login">
+                    <div class="icone-logo"><i class="fas fa-leaf"></i></div>
+                    <h1>Carbon Techo</h1>
+                </div>
+                
+                <!-- TÍTULO DO FORMULÁRIO -->
+                <h2 class="titulo-formulario">Acesse Sua Conta</h2>
+                
+                
+                <!-- FORMULÁRIO DE LOGIN -->
+                <form id="formulario-login">
+                    <!-- CAMPO EMAIL -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-envelope icone-campo"></i>
+                        <input type="email" class="controle-formulario controle-formulario-com-icone" placeholder="Seu e-mail" required>
+                    </div>
+                    
+                    <!-- CAMPO SENHA -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-lock icone-campo"></i>
+                        <input type="password" class="controle-formulario controle-formulario-com-icone" placeholder="Sua senha" required>
+                    </div>
+                    
+                    <!-- CHECKBOX LEMBRAR-ME -->
+                    <div class="lembrar-me">
+                        <input type="checkbox" id="lembrar">
+                        <label for="lembrar">Lembrar-me</label>
+                    </div>
+                    
+                    <!-- BOTÃO DE LOGIN -->
+                    <button type="submit" class="botao-login">Entrar</button>
+                    
+                    <!-- LINK ESQUECI SENHA -->
+                    <div class="links-adicionais">
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+                </form>
+                
+                <!-- DIVISÓRIA -->
+                <div class="divisoria">
+                    <span>Ou entre com</span>
+                </div>
+                
+                <!-- BOTÕES DE LOGIN SOCIAL -->
+                <div class="botoes-sociais">
+                    <button class="botao-social">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="botao-social">
+                        <i class="fab fa-microsoft"></i> Microsoft
+                    </button>
+                </div>
+                
+                <!-- MENSAGEM DE REGISTRO -->
+                <div class="mensagem-registro">
+                    <p>Não tem uma conta? <a href="#">Cadastre-se agora</a></p> <br>
+                    <p> <a href="index.html">Voltar</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // VALIDAÇÃO DO FORMULÁRIO DE LOGIN
+        document.getElementById('formulario-login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulação de login bem-sucedido
+            const email = this.querySelector('input[type="email"]').value;
+            const senha = this.querySelector('input[type="password"]').value;
+            
+            // Validação básica
+            if (!email || !senha) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            
+            // Simula um processo de login
+            alert(`Login realizado com sucesso!\nRedirecionando para o dashboard...`);
+            
+            // Redireciona após 1 segundo (simulação)
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1000);
+        });
+        
+        // ANIMAÇÃO DE FOCO NOS CAMPOS
+        const camposFormulario = document.querySelectorAll('.controle-formulario');
+        camposFormulario.forEach(campo => {
+            campo.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+                this.parentElement.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+            });
+            
+            campo.addEventListener('blur', function() {
+                this.parentElement.style.transform = '';
+                this.parentElement.style.boxShadow = '';
+            });
+        });
+        
+        // TOGGLE DE VISUALIZAÇÃO DE SENHA (OPCIONAL)
+        // Poderia ser implementado com um ícone de olho para mostrar/ocultar senha
+    </script>
+</body>
+</html>

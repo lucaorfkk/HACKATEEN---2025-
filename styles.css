@@ -1,0 +1,657 @@
+/* ===== ARQUIVO CSS PRINCIPAL - styles.css =====
+   Este arquivo contém todos os estilos para o site de rastreamento de carbono */
+
+/* ===== VARIÁVEIS CSS =====
+   Definição de cores, sombras e valores reutilizáveis em todo o projeto */
+:root {
+  /* Cores principais do tema sustentabilidade */
+  --cor-primaria: #2D5A27;      /* Verde escuro principal */
+  --cor-secundaria: #4A9B3E;    /* Verde médio */
+  --cor-destaque: #7BC142;       /* Verde claro para destaques */
+  --verde-claro: #E8F5E8;        /* Verde muito claro para fundos */
+  
+  /* Cores de texto e fundos neutros */
+  --texto-escuro: #1A1A1A;          /* Texto principal */
+  --texto-cinza: #666;             /* Texto secundário */
+  --cinza-claro: #F5F5F5;         /* Fundo claro */
+  --branco: #FFFFFF;              /* Branco puro */
+  
+  /* Cores de status e alertas */
+  --perigo: #E74C3C;             /* Vermelho para erros */
+  --aviso: #F39C12;            /* Laranja para avisos */
+  --sucesso: #27AE60;            /* Verde para sucesso */
+  
+  /* Efeitos visuais */
+  --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);              /* Sombra padrão */
+  --sombra-hover: 0 8px 25px rgba(0, 0, 0, 0.15);      /* Sombra no hover */
+  --raio-borda: 12px;                                /* Raio dos cantos arredondados */
+  --transicao: all 0.3s ease;                         /* Transição suave */
+}
+
+/* ===== RESET E CONFIGURAÇÕES BÁSICAS =====
+   Remove margens/padding padrão e define box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ESTILO BASE DO BODY =====
+   Define fonte, cor e fundo padrão de toda a página */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;                    /* Altura da linha para boa legibilidade */
+  color: var(--texto-escuro);
+  background-color: var(--branco);
+}
+
+/* ===== HEADER E NAVEGAÇÃO =====
+   Cabeçalho fixo com gradiente e navegação responsiva */
+.cabecalho {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+  color: var(--branco);
+  padding: 1rem 0;
+  position: fixed;                      /* Fixa o header no topo */
+  top: 0;
+  width: 100%;
+  z-index: 1000;                       /* Garante que fica acima de outros elementos */
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(10px);         /* Efeito de blur moderno */
+}
+
+/* Container do header com largura máxima e centralização */
+.conteiner-cabecalho {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;       /* Logo à esquerda, nav à direita */
+  align-items: center;
+}
+
+/* Estilo do logo com ícone */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;                           /* Espaço entre ícone e texto */
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--branco);
+}
+
+/* Ícone circular do logo */
+.icone-logo {
+  width: 40px;
+  height: 40px;
+  background: var(--cor-destaque);
+  border-radius: 50%;                  /* Torna o ícone circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* Menu de navegação horizontal */
+nav ul {
+  display: flex;
+  list-style: none;                    /* Remove bullets da lista */
+  gap: 2rem;                          /* Espaço entre itens do menu */
+  align-items: center;
+}
+
+/* Links do menu de navegação */
+nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transicao);
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio-borda);
+}
+
+/* Efeitos hover e ativo nos links */
+nav a:hover,
+nav a.ativo {
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  transform: translateY(-2px);          /* Movimento sutil para cima */
+}
+
+/* Botão do menu mobile (inicialmente oculto) */
+.botao-menu-mobile {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--branco);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===== CONTEÚDO PRINCIPAL =====
+   Área principal com margem para compensar header fixo */
+.principal {
+  margin-top: 80px;                    /* Compensa altura do header fixo */
+  min-height: calc(100vh - 80px);      /* Altura mínima da tela menos header */
+}
+
+/* Container padrão para conteúdo com largura máxima */
+.conteiner {
+  max-width: 1200px;
+  margin: 0 auto;                      /* Centraliza horizontalmente */
+  padding: 0 2rem;
+}
+
+/* ===== SEÇÃO HERO (DESTAQUE) =====
+   Área principal de destaque na página inicial */
+.hero {
+  background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+/* Título principal da hero */
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 1rem;
+  line-height: 1.2;                    /* Altura reduzida para títulos grandes */
+}
+
+/* Subtítulo da hero */
+.hero p {
+  font-size: 1.25rem;
+  color: var(--texto-cinza);
+  margin-bottom: 2rem;
+  max-width: 600px;                    /* Limita largura para melhor leitura */
+  margin-left: auto;
+  margin-right: auto;                  /* Centraliza o parágrafo */
+}
+
+/* Botão de call-to-action principal */
+.botao-principal {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  color: var(--branco);
+  padding: 1rem 2rem;
+  border-radius: var(--raio-borda);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transicao);
+  box-shadow: var(--sombra);
+}
+
+/* Efeito hover do botão CTA */
+.botao-principal:hover {
+  transform: translateY(-3px);          /* Move para cima */
+  box-shadow: var(--sombra-hover);      /* Sombra mais pronunciada */
+}
+
+/* ===== SEÇÕES DE CONTEÚDO =====
+   Estilo padrão para seções da página */
+.secao {
+  padding: 4rem 0;                     /* Espaçamento vertical generoso */
+}
+
+/* Títulos das seções */
+.titulo-secao {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--cor-primaria);
+  margin-bottom: 3rem;
+}
+
+/* Subtítulos das seções */
+.subtitulo-secao {
+  font-size: 1.2rem;
+  color: var(--texto-cinza);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== SISTEMA DE CARDS =====
+   Grid responsivo para cartões de conteúdo */
+.grade-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo automático */
+  gap: 2rem;                           /* Espaço entre cards */
+  margin-bottom: 3rem;
+}
+
+/* Estilo individual dos cards */
+.card {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+  border: 1px solid #E0E0E0;          /* Borda sutil */
+}
+
+/* Efeito hover dos cards */
+.card:hover {
+  transform: translateY(-5px);         /* Levita o card */
+  box-shadow: var(--sombra-hover);
+}
+
+/* Ícone circular dos cards */
+.icone-card {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--branco);
+  font-size: 1.5rem;
+}
+
+/* Título do card */
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 1rem;
+}
+
+/* Texto do card */
+.card p {
+  color: var(--texto-cinza);
+  line-height: 1.6;
+}
+
+/* ===== FORMULÁRIOS =====
+   Estilo para todos os formulários do site */
+
+/* Grupo de campos do formulário */
+.grupo-formulario {
+  margin-bottom: 1.5rem;
+}
+
+/* Labels dos campos */
+.grupo-formulario label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--texto-escuro);
+}
+
+/* Campos de entrada (input, textarea, select) */
+.controle-formulario {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #E0E0E0;
+  border-radius: var(--raio-borda);
+  font-size: 1rem;
+  transition: var(--transicao);
+  background: var(--branco);
+}
+
+/* Estado de foco dos campos */
+.controle-formulario:focus {
+  outline: none;
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(74, 155, 62, 0.1); /* Anel de foco */
+}
+
+/* Textarea específico */
+textarea.controle-formulario {
+  resize: vertical;                    /* Permite redimensionar apenas verticalmente */
+  min-height: 120px;
+}
+
+/* ===== BOTÕES =====
+   Sistema de botões reutilizável */
+
+/* Estilo base dos botões */
+.botao {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: var(--raio-borda);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transicao);
+  text-align: center;
+}
+
+/* Botão primário (principal) */
+.botao-primario {
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  color: var(--branco);
+  box-shadow: var(--sombra);
+}
+
+.botao-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Botão secundário (alternativo) */
+.botao-secundario {
+  background: var(--branco);
+  color: var(--cor-secundaria);
+  border: 2px solid var(--cor-secundaria);
+}
+
+.botao-secundario:hover {
+  background: var(--cor-secundaria);
+  color: var(--branco);
+}
+
+/* ===== SEÇÃO DE EQUIPE =====
+   Grid para membros da equipe */
+.grade-equipe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Card individual de membro da equipe */
+.membro-equipe {
+  text-align: center;
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+}
+
+.membro-equipe:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Foto/avatar do membro da equipe */
+.foto-membro {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Nome do membro */
+.membro-equipe h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 0.5rem;
+}
+
+/* Cargo/função do membro */
+.membro-equipe .cargo {
+  color: var(--cor-secundaria);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* ===== DASHBOARD E ESTATÍSTICAS =====
+   Componentes para exibir dados e métricas */
+
+/* Grid de estatísticas */
+.estatisticas-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Card individual de estatística */
+.card-estatistica {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+  border-left: 4px solid var(--cor-secundaria); /* Barra colorida à esquerda */
+}
+
+/* Número da estatística */
+.numero-estatistica {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  display: block;
+}
+
+/* Label da estatística */
+.rotulo-estatistica {
+  font-size: 0.9rem;
+  color: var(--texto-cinza);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;              /* Espaçamento entre letras */
+}
+
+/* Container para gráficos */
+.conteiner-grafico {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  margin-bottom: 2rem;
+}
+
+/* ===== SISTEMA DE ALERTAS =====
+   Alertas coloridos para diferentes tipos de mensagem */
+
+/* Base dos alertas */
+.alerta {
+  padding: 1rem 1.5rem;
+  border-radius: var(--raio-borda);
+  margin-bottom: 1rem;
+  border-left: 4px solid;             /* Barra colorida à esquerda */
+}
+
+/* Alerta de sucesso (verde) */
+.alerta-sucesso {
+  background: rgba(39, 174, 96, 0.1);  /* Fundo verde semi-transparente */
+  border-color: var(--sucesso);
+  color: var(--sucesso);
+}
+
+/* Alerta de aviso (laranja) */
+.alerta-aviso {
+  background: rgba(243, 156, 18, 0.1);
+  border-color: var(--aviso);
+  color: var(--aviso);
+}
+
+/* Alerta de erro (vermelho) */
+.alerta-perigo {
+  background: rgba(231, 76, 60, 0.1);
+  border-color: var(--perigo);
+  color: var(--perigo);
+}
+
+/* ===== FOOTER =====
+   Rodapé com informações da empresa */
+.rodape {
+  background: var(--cor-primaria);
+  color: var(--branco);
+  padding: 3rem 0 1rem;
+}
+
+/* Conteúdo principal do footer */
+.conteudo-rodape {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Seções do footer */
+.secao-rodape h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--cor-destaque);
+}
+
+.secao-rodape p,
+.secao-rodape li {
+  color: rgba(255, 255, 255, 0.8);    /* Texto semi-transparente */
+  line-height: 1.6;
+}
+
+.secao-rodape ul {
+  list-style: none;
+}
+
+.secao-rodape ul li {
+  margin-bottom: 0.5rem;
+}
+
+.secao-rodape a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.secao-rodape a:hover {
+  color: var(--cor-destaque);
+}
+
+/* Links das redes sociais */
+.links-sociais {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Ícone individual da rede social */
+.link-social {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.link-social:hover {
+  background: var(--cor-destaque);
+  transform: translateY(-2px);
+}
+
+/* Rodapé inferior com copyright */
+.rodape-inferior {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== DESIGN RESPONSIVO =====
+   Media queries para diferentes tamanhos de tela */
+
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+  .conteiner-cabecalho {
+    padding: 0 1rem;
+  }
+  
+  /* Mostra botão do menu mobile */
+  .botao-menu-mobile {
+    display: block;
+  }
+  
+  /* Menu mobile (inicialmente oculto) */
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;                         /* Posiciona abaixo do header */
+    left: 0;
+    right: 0;
+    background: var(--cor-primaria);
+    flex-direction: column;            /* Menu vertical */
+    gap: 0;
+    padding: 1rem;
+    box-shadow: var(--sombra);
+  }
+  
+  /* Menu mobile visível */
+  nav ul.mostrar {
+    display: flex;
+  }
+  
+  /* Links do menu mobile */
+  nav a {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .conteiner {
+    padding: 0 1rem;                   /* Menos padding lateral */
+  }
+  
+  /* Ajusta tamanhos de fonte para mobile */
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .titulo-secao {
+    font-size: 2rem;
+  }
+  
+  /* Cards em coluna única */
+  .grade-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Stats em 2 colunas */
+  .estatisticas-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Footer em coluna única */
+  .conteudo-rodape {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;                   /* Título ainda menor */
+  }
+  
+  /* Stats em coluna única */
+  .estatisticas-dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Equipe em coluna única */
+  .grade-equipe {
+    grid-template-columns: 1fr;
+  }
+}

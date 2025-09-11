@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- META TAGS BÁSICAS -->
+    <!-- Define codificação de caracteres para português brasileiro -->
+    <meta charset="UTF-8">
+    <!-- Configura viewport para design responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
+    <title>CarbonTracker - Rastreamento de Carbono em Tempo Real</title>
+    <meta name="description" content="Software que monitora e relata emissões de carbono de operações logísticas e industriais, com sugestões de redução em tempo real.">
+    
+    <!-- LINK PARA CSS EXTERNO -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ===== HEADER FIXO COM NAVEGAÇÃO ===== -->
+    <header class="cabecalho">
+        <div class="conteiner-cabecalho">
+            <!-- LOGO COM ÍCONE E TEXTO -->
+            <a href="index.html" class="logo">
+                <div class="icone-logo"><i class="fas fa-leaf"></i></div>
+                <span>Carbon Techo</span>
+            </a>
+            
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav>
+                <!-- BOTÃO PARA MENU MOBILE (oculto em desktop) -->
+                <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- LISTA DE NAVEGAÇÃO -->
+                <ul id="menu-navegacao">
+                    <li><a href="index.html" class="ativo"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="principal">
+        <!-- SEÇÃO HERO (DESTAQUE PRINCIPAL) -->
+        <section class="hero">
+            <div class="conteiner">
+                <!-- TÍTULO PRINCIPAL DA PÁGINA -->
+                <h1>Rastreamento de Carbono em Tempo Real</h1>
+                
+                <!-- SUBTÍTULO EXPLICATIVO -->
+                <p>Monitore, analise e reduza as emissões de carbono da sua empresa com nossa plataforma inteligente. Soluções sustentáveis para um futuro mais verde.</p>
+                
+                <!-- BOTÃO DE CALL-TO-ACTION -->
+                <a href="dashboard.html" class="botao-principal">Ver Dashboard</a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE FUNCIONALIDADES -->
+        <section class="secao">
+            <div class="conteiner">
+                <!-- TÍTULO DA SEÇÃO -->
+                <h2 class="titulo-secao">Como Funciona</h2>
+                
+                <!-- SUBTÍTULO DESCRITIVO -->
+                <p class="subtitulo-secao">Nossa plataforma oferece monitoramento completo das emissões de carbono, fornecendo dados precisos e sugestões inteligentes para redução do impacto ambiental.</p>
+                
+                <!-- GRID DE CARDS COM FUNCIONALIDADES -->
+                <div class="grade-cards">
+                    <!-- CARD 1: MONITORAMENTO -->
+                    <div class="card">
+                        <!-- ÍCONE DA FUNCIONALIDADE -->
+                        <div class="icone-card"><i class="fas fa-chart-line"></i></div>
+                        <!-- TÍTULO DO CARD -->
+                        <h3>Monitoramento em Tempo Real</h3>
+                        <!-- DESCRIÇÃO DA FUNCIONALIDADE -->
+                        <p>Acompanhe as emissões de carbono de suas operações logísticas e industriais em tempo real, com dados precisos e atualizados automaticamente.</p>
+                    </div>
+                    
+                    <!-- CARD 2: RELATÓRIOS -->
+                    <div class="card">
+                        <div class="icone-card"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Relatórios Detalhados</h3>
+                        <p>Gere relatórios completos sobre suas emissões, com análises comparativas, tendências e métricas essenciais para tomada de decisão.</p>
+                    </div>
+                    
+                    <!-- CARD 3: SUGESTÕES -->
+                    <div class="card">
+                        <div class="icone-card"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Sugestões Inteligentes</h3>
+                        <p>Receba recomendações personalizadas baseadas em IA para reduzir suas emissões e tornar suas operações mais sustentáveis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE BENEFÍCIOS -->
+        <section class="secao" style="background-color: var(--verde-claro);">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Por Que Escolher o CarbonTracker?</h2>
+                
+                <!-- GRID DE BENEFÍCIOS -->
+                <div class="grade-cards">
+                    <!-- BENEFÍCIO 1 -->
+                    <div class="card">
+                        <div class="icone-card"><i class="fas fa-bolt"></i></div>
+                        <h3>Implementação Rápida</h3>
+                        <p>Configure e comece a usar em poucos minutos. Nossa solução se integra facilmente aos seus sistemas existentes.</p>
+                    </div>
+                    
+                    <!-- BENEFÍCIO 2 -->
+                    <div class="card">
+                        <div class="icone-card"><i class="fas fa-lock"></i></div>
+                        <h3>Dados Seguros</h3>
+                        <p>Seus dados estão protegidos com criptografia de ponta e infraestrutura segura, garantindo total confidencialidade.</p>
+                    </div>
+                    
+                    <!-- BENEFÍCIO 3 -->
+                    <div class="card">
+                        <div class="icone-card"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>Economia Comprovada</h3>
+                        <p>Empresas parceiras reduziram até 30% de suas emissões e obtiveram economias significativas em custos operacionais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE ESTATÍSTICAS -->
+        <section class="secao">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Nosso Impacto</h2>
+                
+                <!-- GRID DE ESTATÍSTICAS -->
+                <div class="estatisticas-dashboard">
+                    <!-- ESTATÍSTICA 1 -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica">150+</span>
+                        <div class="rotulo-estatistica">Empresas Atendidas</div>
+                    </div>
+                    
+                    <!-- ESTATÍSTICA 2 -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica">2.5M</span>
+                        <div class="rotulo-estatistica">Toneladas CO₂ Monitoradas</div>
+                    </div>
+                    
+                    <!-- ESTATÍSTICA 3 -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica">35%</span>
+                        <div class="rotulo-estatistica">Redução Média Alcançada</div>
+                    </div>
+                    
+                    <!-- ESTATÍSTICA 4 -->
+                    <div class="card-estatistica">
+                        <span class="numero-estatistica">24/7</span>
+                        <div class="rotulo-estatistica">Monitoramento Contínuo</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <!-- SEÇÃO 1: SOBRE A EMPRESA -->
+            <div class="secao-rodape">
+                <h3>CarbonTracker</h3>
+                <p>Líder em soluções de monitoramento de carbono, ajudando empresas a alcançar suas metas de sustentabilidade através de tecnologia inovadora.</p>
+                
+                <!-- LINKS DAS REDES SOCIAIS -->
+                <div class="links-sociais">
+                    <a href="#" class="link-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="link-social"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- SEÇÃO 2: LINKS RÁPIDOS -->
+            <div class="secao-rodape">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 3: SERVIÇOS -->
+            <div class="secao-rodape">
+                <h3>Nossos Serviços</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cloud"></i> Monitoramento de CO₂</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios Personalizados</a></li>
+                    <li><a href="#"><i class="fas fa-hands-helping"></i> Consultoria Sustentável</a></li>
+                    <li><a href="#"><i class="fas fa-award"></i> Certificações Ambientais</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 4: CONTATO -->
+            <div class="secao-rodape">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
+                <p><i class="fas fa-phone"></i> (19) 99835-5378 </p>
+                <p><i class="fas fa-envelope"></i> carbontecho@gmail.com</p>
+                <p><i class="fas fa-globe"></i> www.carbontecho.com.br</p>
+            </div>
+        </div>
+        
+        <!-- RODAPÉ INFERIOR COM COPYRIGHT -->
+        <div class="rodape-inferior">
+            <p>&copy; 2025 Carbon Techo - ETEC Polivalente Americana - Desenvolvido para um futuro sustentável.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        /* FUNÇÃO PARA TOGGLE DO MENU MOBILE */
+        function alternarMenuMobile() {
+            // Seleciona o menu de navegação
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            
+            // Adiciona ou remove a classe 'mostrar' para mostrar/ocultar o menu
+            menuNavegacao.classList.toggle('mostrar');
+        }
+
+        /* FUNÇÃO PARA FECHAR MENU MOBILE AO CLICAR EM UM LINK */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleciona todos os links do menu
+            const linksNavegacao = document.querySelectorAll('nav a');
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            
+            // Adiciona evento de click para cada link
+            linksNavegacao.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Remove a classe 'mostrar' para fechar o menu mobile
+                    menuNavegacao.classList.remove('mostrar');
+                });
+            });
+        });
+
+        /* ANIMAÇÃO SUAVE AO ROLAR A PÁGINA */
+        window.addEventListener('scroll', function() {
+            const cabecalho = document.querySelector('.cabecalho');
+            
+            // Adiciona classe quando a página é rolada
+            if (window.scrollY > 50) {
+                cabecalho.style.backgroundColor = 'rgba(45, 90, 39, 0.95)';
+            } else {
+                cabecalho.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>

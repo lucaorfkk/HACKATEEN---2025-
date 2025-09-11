@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- META TAGS BÁSICAS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
+    <title>CarbonTracker - Entre em Contato</title>
+    <meta name="description" content="Entre em contato com a CarbonTracker para saber mais sobre nossas soluções de monitoramento de carbono.">
+    
+    <!-- LINK PARA CSS EXTERNO -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS INTERNO ESPECÍFICO PARA PÁGINA DE CONTATO -->
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA PÁGINA DE CONTATO ===== */
+        
+        /* LAYOUT DE CONTATO */
+        .layout-contato {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 968px) {
+            .layout-contato {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* INFORMAÇÕES DE CONTATO */
+        .informacoes-contato {
+            background: var(--verde-claro);
+            padding: 2.5rem;
+            border-radius: var(--raio-borda);
+        }
+        
+        .informacoes-contato h2 {
+            color: var(--cor-primaria);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .lista-contato {
+            list-style: none;
+        }
+        
+        .item-contato {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .icone-contato {
+            width: 40px;
+            height: 40px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .texto-contato h4 {
+            margin-bottom: 0.25rem;
+            color: var(--cor-primaria);
+        }
+        
+        .texto-contato p,
+        .texto-contato a {
+            color: var(--texto-cinza);
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+        
+        .texto-contato a:hover {
+            color: var(--cor-secundaria);
+        }
+        
+        /* FORMULÁRIO DE CONTATO */
+        .formulario-contato {
+            background: var(--branco);
+            padding: 2.5rem;
+            border-radius: var(--raio-borda);
+            box-shadow: var(--sombra);
+        }
+        
+        .formulario-contato h2 {
+            color: var(--cor-primaria);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        /* MAPA */
+        .mapa {
+            margin-top: 3rem;
+            border-radius: var(--raio-borda);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            height: 400px;
+            background: var(--cinza-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--texto-cinza);
+        }
+        
+        /* REDES SOCIAIS */
+        .redes-sociais-contato {
+            margin-top: 2rem;
+        }
+        
+        .redes-sociais-contato h3 {
+            margin-bottom: 1rem;
+            color: var(--cor-primaria);
+        }
+        
+        .links-redes-sociais {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .link-rede-social {
+            width: 45px;
+            height: 45px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+        
+        .link-rede-social:hover {
+            background: var(--cor-primaria);
+            transform: translateY(-2px);
+        }
+        
+        /* HORÁRIO DE ATENDIMENTO */
+        .horario-atendimento {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .horario-atendimento h3 {
+            margin-bottom: 1rem;
+            color: var(--cor-primaria);
+        }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .informacoes-contato,
+            .formulario-contato {
+                padding: 2rem 1.5rem;
+            }
+            
+            .item-contato {
+                flex-direction: column;
+            }
+            
+            .icone-contato {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER FIXO COM NAVEGAÇÃO ===== -->
+    <header class="cabecalho">
+        <div class="conteiner-cabecalho">
+            <!-- LOGO COM ÍCONE E TEXTO -->
+            <a href="index.html" class="logo">
+                <div class="icone-logo"><i class="fas fa-leaf"></i></div>
+                <span>Carbon Techo</span>
+            </a>
+            
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav>
+                <!-- BOTÃO PARA MENU MOBILE (oculto em desktop) -->
+                <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- LISTA DE NAVEGAÇÃO -->
+                <ul id="menu-navegacao">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html" class="ativo"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="principal">
+        <!-- SEÇÃO HERO (DESTAQUE PRINCIPAL) -->
+        <section class="hero">
+            <div class="conteiner">
+                <!-- TÍTULO PRINCIPAL DA PÁGINA -->
+                <h1>Entre em Contato</h1>
+                
+                <!-- SUBTÍTULO EXPLICATIVO -->
+                <p>Estamos aqui para ajudar sua empresa a alcançar suas metas de sustentabilidade. Entre em contato para uma consultoria personalizada.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CONTATO -->
+        <section class="secao">
+            <div class="conteiner">
+                <!-- LAYOUT DE CONTATO -->
+                <div class="layout-contato">
+                    <!-- INFORMAÇÕES DE CONTATO -->
+                    <div class="informacoes-contato">
+                        <h2>Informações de Contato</h2>
+                        
+                        <ul class="lista-contato">
+                            <!-- TELEFONE -->
+                            <li class="item-contato">
+                                <div class="icone-contato"><i class="fas fa-phone"></i></div>
+                                <div class="texto-contato">
+                                    <h4>Telefone</h4>
+                                    <p><a href="tel:+551130000000">(19) 99835-5378</a></p>
+                                </div>
+                            </li>
+                            
+                            <!-- EMAIL -->
+                            <li class="item-contato">
+                                <div class="icone-contato"><i class="fas fa-envelope"></i></div>
+                                <div class="texto-contato">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:contato@carbontracker.com.br">carbontecho@gmail.com</a></p>
+                                </div>
+                            </li>
+                            
+                            <!-- ENDEREÇO -->
+                            <li class="item-contato">
+                                <div class="icone-contato"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="texto-contato">
+                                    <h4>Endereço</h4>
+                                    <p>Av. Nossa Sra. de Fátima<br> Vila Israel<br> Americana  - SP, 13478-540
+</p>
+                                </div>
+                            </li>
+                            
+                            <!-- WHATSAPP -->
+                            <li class="item-contato">
+                                <div class="icone-contato"><i class="fab fa-whatsapp"></i></div>
+                                <div class="texto-contato">
+                                    <h4>WhatsApp</h4>
+                                    <p><a href="https://wa.me/5511999999999">(19) 99835-5378 </a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <!-- REDES SOCIAIS -->
+                        <div class="redes-sociais-contato">
+                            <h3>Siga-nos</h3>
+                            <div class="links-redes-sociais">
+                                <a href="#" class="link-rede-social"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="link-rede-social"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="link-rede-social"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.instagram.com/carbontecho/" class="link-rede-social"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- HORÁRIO DE ATENDIMENTO -->
+                        <div class="horario-atendimento">
+                            <h3>Horário de Atendimento</h3>
+                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 13h</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FORMULÁRIO DE CONTATO -->
+                    <div class="formulario-contato">
+                        <h2>Envie uma Mensagem</h2>
+                        
+                        <form id="formulario-contato">
+                            <!-- NOME -->
+                            <div class="grupo-formulario">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" class="controle-formulario" required>
+                            </div>
+                            
+                            <!-- EMAIL -->
+                            <div class="grupo-formulario">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" class="controle-formulario" required>
+                            </div>
+                            
+                            <!-- TELEFONE -->
+                            <div class="grupo-formulario">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" class="controle-formulario">
+                            </div>
+                            
+                            <!-- EMPRESA -->
+                            <div class="grupo-formulario">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" id="empresa" class="controle-formulario">
+                            </div>
+                            
+                            <!-- ASSUNTO -->
+                            <div class="grupo-formulario">
+                                <label for="assunto">Assunto *</label>
+                                <select id="assunto" class="controle-formulario" required>
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="demonstracao">Solicitar Demonstração</option>
+                                    <option value="orcamento">Solicitar Orçamento</option>
+                                    <option value="suporte">Suporte Técnico</option>
+                                    <option value="parceria">Proposta de Parceria</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            
+                            <!-- MENSAGEM -->
+                            <div class="grupo-formulario">
+                                <label for="mensagem">Mensagem *</label>
+                                <textarea id="mensagem" class="controle-formulario" rows="5" required></textarea>
+                            </div>
+                            
+                            <!-- BOTÃO ENVIAR -->
+                            <button type="submit" class="botao botao-primario" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                
+
+        <!-- SEÇÃO DE PERGUNTAS FREQUENTES -->
+        <section class="secao" style="background-color: var(--verde-claro);">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Perguntas Frequentes</h2>
+                
+                <!-- GRADE DE PERGUNTAS -->
+                <div class="grade-cards">
+                    <!-- PERGUNTA 1 -->
+                    <div class="card">
+                        <h3>Quanto tempo leva para receber uma resposta?</h3>
+                        <p>Respondemos todas as solicitações em até 24 horas úteis. Para assuntos urgentes, recomendamos contato por telefone.</p>
+                    </div>
+                    
+                    <!-- PERGUNTA 2 -->
+                    <div class="card">
+                        <h3>Preciso agendar uma demonstração?</h3>
+                        <p>Sim, as demonstrações são agendadas previamente para garantirmos que teremos tempo suficiente para apresentar todas as funcionalidades.</p>
+                    </div>
+                    
+                    <!-- PERGUNTA 3 -->
+                    <div class="card">
+                        <h3>Oferecem suporte técnico?</h3>
+                        <p>Sim, oferecemos suporte técnico completo para todos os nossos clientes, com diferentes níveis de acordo com o plano contratado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <!-- SEÇÃO 1: SOBRE A EMPRESA -->
+            <div class="secao-rodape">
+                <h3>CarbonTracker</h3>
+                <p>Líder em soluções de monitoramento de carbono, ajudando empresas a alcançar suas metas de sustentabilidade através de tecnologia inovadora.</p>
+                
+                <!-- LINKS DAS REDES SOCIAIS -->
+                <div class="links-sociais">
+                    <a href="#" class="link-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="link-social"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- SEÇÃO 2: LINKS RÁPIDOS -->
+            <div class="secao-rodape">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 3: SERVIÇOS -->
+            <div class="secao-rodape">
+                <h3>Nossos Serviços</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cloud"></i> Monitoramento de CO₂</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios Personalizados</a></li>
+                    <li><a href="#"><i class="fas fa-hands-helping"></i> Consultoria Sustentável</a></li>
+                    <li><a href="#"><i class="fas fa-award"></i> Certificações Ambientais</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 4: CONTATO -->
+            <div class="secao-rodape">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
+                <p><i class="fas fa-phone"></i> (19) 99835-5378 </p>
+                <p><i class="fas fa-envelope"></i> carbontecho@gmail.com</p>
+                <p><i class="fas fa-globe"></i> www.carbontecho.com.br</p>
+            </div>
+        </div>
+        
+        <!-- RODAPÉ INFERIOR COM COPYRIGHT -->
+        <div class="rodape-inferior">
+            <p>&copy; 2025 Carbon Techo - ETEC Polivalente Americana - Desenvolvido para um futuro sustentável.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        /* FUNÇÃO PARA TOGGLE DO MENU MOBILE */
+        function alternarMenuMobile() {
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            menuNavegacao.classList.toggle('mostrar');
+        }
+
+        /* FECHAR MENU MOBILE AO CLICAR EM UM LINK */
+        document.addEventListener('DOMContentLoaded', function() {
+            const linksNavegacao = document.querySelectorAll('nav a');
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            
+            linksNavegacao.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuNavegacao.classList.remove('mostrar');
+                });
+            });
+            
+            /* VALIDAÇÃO DO FORMULÁRIO DE CONTATO */
+            const formularioContato = document.getElementById('formulario-contato');
+            
+            formularioContato.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validação básica
+                const camposObrigatorios = this.querySelectorAll('[required]');
+                let valido = true;
+                
+                camposObrigatorios.forEach(campo => {
+                    if (!campo.value.trim()) {
+                        campo.classList.add('campo-invalido');
+                        valido = false;
+                    } else {
+                        campo.classList.remove('campo-invalido');
+                    }
+                });
+                
+                // Validação específica para email
+                const email = document.getElementById('email');
+                if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                    email.classList.add('campo-invalido');
+                    valido = false;
+                }
+                
+                if (valido) {
+                    // Simulação de envio
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    formularioContato.reset();
+                } else {
+                    alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+                }
+            });
+            
+            // Validação em tempo real
+            const campos = formularioContato.querySelectorAll('input, textarea, select');
+            campos.forEach(campo => {
+                campo.addEventListener('blur', function() {
+                    if (this.hasAttribute('required') && !this.value.trim()) {
+                        this.classList.add('campo-invalido');
+                    } else {
+                        this.classList.remove('campo-invalido');
+                    }
+                    
+                    // Validação específica para email
+                    if (this.type === 'email' && this.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value)) {
+                        this.classList.add('campo-invalido');
+                    }
+                });
+            });
+        });
+
+        /* ANIMAÇÃO SUAVE AO ROLAR A PÁGINA */
+        window.addEventListener('scroll', function() {
+            const cabecalho = document.querySelector('.cabecalho');
+            
+            if (window.scrollY > 50) {
+                cabecalho.style.backgroundColor = 'rgba(45, 90, 39, 0.95)';
+            } else {
+                cabecalho.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>

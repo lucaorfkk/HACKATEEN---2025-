@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- META TAGS BÁSICAS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
+    <title>CarbonTracker - Nossos Serviços</title>
+    <meta name="description" content="Conheça nossos serviços de monitoramento de carbono, relatórios personalizados e consultoria para redução de emissões.">
+    
+    <!-- LINK PARA CSS EXTERNO -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS INTERNO ESPECÍFICO PARA PÁGINA DE SERVIÇOS -->
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA PÁGINA DE SERVIÇOS ===== */
+        
+        /* SEÇÃO DE SERVIÇOS PRINCIPAIS */
+        .grade-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card-servico {
+            background: var(--branco);
+            border-radius: var(--raio-borda);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--sombra);
+            transition: var(--transicao);
+            text-align: center;
+            border-top: 4px solid var(--cor-secundaria);
+        }
+        
+        .card-servico:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-hover);
+        }
+        
+        .icone-servico {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--branco);
+            font-size: 2rem;
+        }
+        
+        .card-servico h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--cor-primaria);
+            margin-bottom: 1rem;
+        }
+        
+        .card-servico .preco {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cor-secundaria);
+            margin: 1.5rem 0;
+        }
+        
+        .card-servico .periodo {
+            font-size: 0.9rem;
+            color: var(--texto-cinza);
+        }
+        
+        .lista-caracteristicas {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+        
+        .lista-caracteristicas li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        
+        .lista-caracteristicas li:last-child {
+            border-bottom: none;
+        }
+        
+        .lista-caracteristicas i {
+            color: var(--cor-secundaria);
+            margin-right: 0.5rem;
+        }
+        
+        /* SEÇÃO DE PROCESSO */
+        .processo {
+            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
+        }
+        
+        .grade-processo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            counter-reset: processo;
+        }
+        
+        .card-processo {
+            background: var(--branco);
+            border-radius: var(--raio-borda);
+            padding: 2rem;
+            box-shadow: var(--sombra);
+            position: relative;
+            text-align: center;
+        }
+        
+        .card-processo::before {
+            counter-increment: processo;
+            content: counter(processo);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--cor-secundaria);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .icone-processo {
+            font-size: 2.5rem;
+            color: var(--cor-secundaria);
+            margin: 1.5rem 0;
+        }
+        
+        /* SEÇÃO DE PERGUNTAS FREQUENTES */
+        .acordeao-perguntas {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .item-acordeao {
+            background: var(--branco);
+            border-radius: var(--raio-borda);
+            margin-bottom: 1rem;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+        }
+        
+        .pergunta-acordeao {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--cor-primaria);
+        }
+        
+        .pergunta-acordeao:hover {
+            background: var(--verde-claro);
+        }
+        
+        .pergunta-acordeao i {
+            transition: var(--transicao);
+        }
+        
+        .resposta-acordeao {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .item-acordeao.ativo .resposta-acordeao {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .item-acordeao.ativo .pergunta-acordeao i {
+            transform: rotate(180deg);
+        }
+        
+        /* SEÇÃO DE DEPOIMENTOS */
+        .depoimentos {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            color: var(--branco);
+        }
+        
+        .grade-depoimentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card-depoimento {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--raio-borda);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .texto-depoimento {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .autor-depoimento {
+            display: flex;
+            align-items: center;
+        }
+        
+        .foto-autor {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--branco);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-primaria);
+            font-weight: 600;
+        }
+        
+        .info-autor h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-autor p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* BOTÃO DE CHAMADA PARA AÇÃO */
+        .chamada-acao {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .card-servico {
+                padding: 2rem 1.5rem;
+            }
+            
+            .pergunta-acordeao {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER FIXO COM NAVEGAÇÃO ===== -->
+    <header class="cabecalho">
+        <div class="conteiner-cabecalho">
+            <!-- LOGO COM ÍCONE E TEXTO -->
+            <a href="index.html" class="logo">
+                <div class="icone-logo"><i class="fas fa-leaf"></i></div>
+                <span>Carbon Techo</span>
+            </a>
+            
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav>
+                <!-- BOTÃO PARA MENU MOBILE (oculto em desktop) -->
+                <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- LISTA DE NAVEGAÇÃO -->
+                <ul id="menu-navegacao">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html" class="ativo"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="principal">
+        <!-- SEÇÃO HERO (DESTAQUE PRINCIPAL) -->
+        
+        <!-- SEÇÃO DE SERVIÇOS PRINCIPAIS -->
+        <section class="secao">
+            <div class="conteiner">
+                <!-- TÍTULO DA SEÇÃO -->
+                <h2 class="titulo-secao">Planos e Serviços</h2>
+                
+                <!-- SUBTÍTULO DESCRITIVO -->
+                <p class="subtitulo-secao">Oferecemos soluções flexíveis para empresas de todos os tamanhos, desde startups até grandes corporações.</p>
+                
+                <!-- GRADE DE SERVIÇOS -->
+                <div class="grade-servicos">
+                    <!-- SERVIÇO BÁSICO -->
+                    <div class="card-servico">
+                        <div class="icone-servico"><i class="fas fa-seedling"></i></div>
+                        <h3>Plano Básico</h3>
+                        <p>Ideal para pequenas empresas que estão começando sua jornada de sustentabilidade.</p>
+                        
+                        <div class="preco">R$ 499<span class="periodo">/mês</span></div>
+                        
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Monitoramento básico de emissões</li>
+                            <li><i class="fas fa-check"></i> Relatórios mensais</li>
+                            <li><i class="fas fa-check"></i> Suporte por email</li>
+                            <li><i class="fas fa-check"></i> Até 5 fontes de emissão</li>
+                            <li><i class="fas fa-check"></i> Dashboard simplificado</li>
+                        </ul>
+                        
+                        <a href="contato.html" class="botao botao-secundario">Solicitar Demonstração</a>
+                    </div>
+                    
+                    <!-- SERVIÇO PROFISSIONAL (DESTAQUE) -->
+                    <div class="card-servico" style="border-top-color: var(--cor-destaque); transform: scale(1.05);">
+                        <div class="icone-servico" style="background: linear-gradient(135deg, var(--cor-destaque) 0%, #5DBE49 100%);"><i class="fas fa-tree"></i></div>
+                        <h3>Plano Profissional</h3>
+                        <p>Para empresas que buscam monitoramento avançado e relatórios detalhados.</p>
+                        
+                        <div class="preco">R$ 999<span class="periodo">/mês</span></div>
+                        
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Monitoramento avançado</li>
+                            <li><i class="fas fa-check"></i> Relatórios personalizados</li>
+                            <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                            <li><i class="fas fa-check"></i> Até 20 fontes de emissão</li>
+                            <li><i class="fas fa-check"></i> Dashboard completo</li>
+                            <li><i class="fas fa-check"></i> Análises comparativas</li>
+                            <li><i class="fas fa-check"></i> API de integração</li>
+                        </ul>
+                        
+                        <a href="contato.html" class="botao botao-primario">Solicitar Demonstração</a>
+                    </div>
+                    
+                    <!-- SERVIÇO ENTERPRISE -->
+                    <div class="card-servico">
+                        <div class="icone-servico"><i class="fas fa-globe"></i></div>
+                        <h3>Plano Enterprise</h3>
+                        <p>Solução completa para grandes corporações com necessidades complexas.</p>
+                        
+                        <div class="preco">Sob Consulta</div>
+                        
+                        <ul class="lista-caracteristicas">
+                            <li><i class="fas fa-check"></i> Monitoramento em tempo real</li>
+                            <li><i class="fas fa-check"></i> Relatórios executivos</li>
+                            <li><i class="fas fa-check"></i> Suporte 24/7</li>
+                            <li><i class="fas fa-check"></i> Fontes de emissão ilimitadas</li>
+                            <li><i class="fas fa-check"></i> Dashboard personalizável</li>
+                            <li><i class="fas fa-check"></i> Análises preditivas</li>
+                            <li><i class="fas fa-check"></i> Consultoria especializada</li>
+                            <li><i class="fas fa-check"></i> Integrações customizadas</li>
+                        </ul>
+                        
+                        <a href="contato.html" class="botao botao-secundario">Fale com um Especialista</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE PROCESSO DE IMPLEMENTAÇÃO -->
+        <section class="secao processo">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Como Implementamos</h2>
+                <p class="subtitulo-secao">Nosso processo é simples, eficiente e minimiza disrupturas nas suas operações.</p>
+                
+                <!-- GRADE DO PROCESSO -->
+                <div class="grade-processo">
+                    <!-- ETAPA 1 -->
+                    <div class="card-processo">
+                        <div class="icone-processo"><i class="fas fa-clipboard-list"></i></div>
+                        <h3>Análise Inicial</h3>
+                        <p>Realizamos uma avaliação completa das suas operações e necessidades específicas.</p>
+                    </div>
+                    
+                    <!-- ETAPA 2 -->
+                    <div class="card-processo">
+                        <div class="icone-processo"><i class="fas fa-cogs"></i></div>
+                        <h3>Personalização</h3>
+                        <p>Customizamos a solução para se integrar perfeitamente aos seus sistemas existentes.</p>
+                    </div>
+                    
+                    <!-- ETAPA 3 -->
+                    <div class="card-processo">
+                        <div class="icone-processo"><i class="fas fa-rocket"></i></div>
+                        <h3>Implementação</h3>
+                        <p>Instalamos e configuramos a plataforma com treinamento para sua equipe.</p>
+                    </div>
+                    
+                    <!-- ETAPA 4 -->
+                    <div class="card-processo">
+                        <div class="icone-processo"><i class="fas fa-chart-line"></i></div>
+                        <h3>Monitoramento Contínuo</h3>
+                        <p>Acompanhamos o desempenho e fazemos ajustes para otimizar resultados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE PERGUNTAS FREQUENTES -->
+        <section class="secao">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Perguntas Frequentes</h2>
+                
+                <!-- ACORDEÃO DE PERGUNTAS -->
+                <div class="acordeao-perguntas">
+                    <!-- PERGUNTA 1 -->
+                    <div class="item-acordeao">
+                        <div class="pergunta-acordeao">
+                            <span>Quanto tempo leva para implementar a solução?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="resposta-acordeao">
+                            <p>O tempo de implementação varia conforme o tamanho da empresa e complexidade das operações. Em média, leva de 2 a 4 semanas para uma implementação completa, incluindo integração com sistemas existentes e treinamento da equipe.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PERGUNTA 2 -->
+                    <div class="item-acordeao">
+                        <div class="pergunta-acordeao">
+                            <span>Preciso de equipamentos especiais?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="resposta-acordeao">
+                            <p>Não. Nossa solução é baseada em software e utiliza os dados que sua empresa já coleta. Em alguns casos, recomendamos sensores adicionais para medições mais precisas, mas isso é opcional e avaliado caso a caso.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PERGUNTA 3 -->
+                    <div class="item-acordeao">
+                        <div class="pergunta-acordeao">
+                            <span>Como é calculada a emissão de carbono?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="resposta-acordeao">
+                            <p>Utilizamos metodologias reconhecidas internacionalmente (como GHG Protocol) e fatores de emissão específicos para cada setor. Nossos algoritmos convertem dados operacionais (consumo energético, combustível, transporte, etc.) em equivalentes de CO₂.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PERGUNTA 4 -->
+                    <div class="item-acordeao">
+                        <div class="pergunta-acordeao">
+                            <span>Os dados da minha empresa estão seguros?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="resposta-acordeao">
+                            <p>Sim. Utilizamos criptografia de ponta a ponta, servidores seguros e seguimos as melhores práticas de segurança de dados. Temos certificações de segurança e conformidade com LGPD.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PERGUNTA 5 -->
+                    <div class="item-acordeao">
+                        <div class="pergunta-acordeao">
+                            <span>Posso cancelar a qualquer momento?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="resposta-acordeao">
+                            <p>Sim. Oferecemos planos flexíveis com cancelamento a qualquer momento. Para planos anuais, oferecemos condições especiais de cancelamento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE DEPOIMENTOS -->
+        <section class="secao depoimentos">
+            <div class="conteiner">
+                <h2 class="titulo-secao" style="color: var(--branco);">O Que Nossos Clientes Dizem</h2>
+                
+                <!-- GRADE DE DEPOIMENTOS -->
+                <div class="grade-depoimentos">
+                    <!-- DEPOIMENTO 1 -->
+                    <div class="card-depoimento">
+                        <div class="texto-depoimento">
+                            "A CarbonTracker transformou nossa gestão ambiental. Reduzimos 28% nas emissões no primeiro ano e economizamos significativamente em custos operacionais."
+                        </div>
+                        <div class="autor-depoimento">
+                            <div class="foto-autor">LC</div>
+                            <div class="info-autor">
+                                <h4>Laura Costa</h4>
+                                <p>Diretora de Sustentabilidade, Logística Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- DEPOIMENTO 2 -->
+                    <div class="card-depoimento">
+                        <div class="texto-depoimento">
+                            "A plataforma é intuitiva e os relatórios nos ajudaram a comunicar nosso progresso sustentável para acionistas e clientes. Suporte excepcional!"
+                        </div>
+                        <div class="autor-depoimento">
+                            <div class="foto-autor">RS</div>
+                            <div class="info-autor">
+                                <h4>Ricardo Silva</h4>
+                                <p>CEO, Manufatura Sustentável SA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- DEPOIMENTO 3 -->
+                    <div class="card-depoimento">
+                        <div class="texto-depoimento">
+                            "Implementamos em todas nossas filiais. A escalabilidade da solução e a precisão dos dados foram cruciais para nosso sucesso em sustentabilidade."
+                        </div>
+                        <div class="autor-depoimento">
+                            <div class="foto-autor">AP</div>
+                            <div class="info-autor">
+                                <h4>Ana Paula Mendes</h4>
+                                <p>Gerente de Operações, Rede Varejo Verde</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CHAMADA PARA AÇÃO -->
+        <section class="secao">
+            <div class="conteiner">
+                <div class="chamada-acao">
+                    <h2>Pronto para Reduzir Suas Emissões?</h2>
+                    <p>Entre em contato conosco para uma demonstração personalizada e descubra como podemos ajudar sua empresa.</p>
+                    <a href="contato.html" class="botao botao-primario" style="margin-top: 1.5rem;">Solicitar Demonstração</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <!-- SEÇÃO 1: SOBRE A EMPRESA -->
+            <div class="secao-rodape">
+                <h3>CarbonTracker</h3>
+                <p>Líder em soluções de monitoramento de carbono, ajudando empresas a alcançar suas metas de sustentabilidade através de tecnologia inovadora.</p>
+                
+                <!-- LINKS DAS REDES SOCIAIS -->
+                <div class="links-sociais">
+                    <a href="#" class="link-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="link-social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="link-social"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- SEÇÃO 2: LINKS RÁPIDOS -->
+            <div class="secao-rodape">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                    <li><a href="servicos.html"><i class="fas fa-cogs"></i> Serviços</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                    <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 3: SERVIÇOS -->
+            <div class="secao-rodape">
+                <h3>Nossos Serviços</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cloud"></i> Monitoramento de CO₂</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios Personalizados</a></li>
+                    <li><a href="#"><i class="fas fa-hands-helping"></i> Consultoria Sustentável</a></li>
+                    <li><a href="#"><i class="fas fa-award"></i> Certificações Ambientais</a></li>
+                </ul>
+            </div>
+            
+            <!-- SEÇÃO 4: CONTATO -->
+            <div class="secao-rodape">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
+                <p><i class="fas fa-phone"></i> (19) 99835-5378 </p>
+                <p><i class="fas fa-envelope"></i> carbontecho@gmail.com</p>
+                <p><i class="fas fa-globe"></i> www.carbontecho.com.br</p>
+            </div>
+        </div>
+        
+        <!-- RODAPÉ INFERIOR COM COPYRIGHT -->
+        <div class="rodape-inferior">
+            <p>&copy; 2025 Carbon Techo - ETEC Polivalente Americana - Desenvolvido para um futuro sustentável.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        /* FUNÇÃO PARA TOGGLE DO MENU MOBILE */
+        function alternarMenuMobile() {
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            menuNavegacao.classList.toggle('mostrar');
+        }
+
+        /* FECHAR MENU MOBILE AO CLICAR EM UM LINK */
+        document.addEventListener('DOMContentLoaded', function() {
+            const linksNavegacao = document.querySelectorAll('nav a');
+            const menuNavegacao = document.getElementById('menu-navegacao');
+            
+            linksNavegacao.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuNavegacao.classList.remove('mostrar');
+                });
+            });
+            
+            /* CONFIGURAR ACORDEÃO DE PERGUNTAS FREQUENTES */
+            const itensAcordeao = document.querySelectorAll('.item-acordeao');
+            
+            itensAcordeao.forEach(item => {
+                const pergunta = item.querySelector('.pergunta-acordeao');
+                
+                pergunta.addEventListener('click', () => {
+                    // Fechar outros itens abertos
+                    itensAcordeao.forEach(outroItem => {
+                        if (outroItem !== item && outroItem.classList.contains('ativo')) {
+                            outroItem.classList.remove('ativo');
+                        }
+                    });
+                    
+                    // Alternar item clicado
+                    item.classList.toggle('ativo');
+                });
+            });
+        });
+
+        /* ANIMAÇÃO SUAVE AO ROLAR A PÁGINA */
+        window.addEventListener('scroll', function() {
+            const cabecalho = document.querySelector('.cabecalho');
+            
+            if (window.scrollY > 50) {
+                cabecalho.style.backgroundColor = 'rgba(45, 90, 39, 0.95)';
+            } else {
+                cabecalho.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>

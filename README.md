@@ -1,6 +1,6 @@
 # Carbon Techo
 
-Projeto desenvolvido para o hackathon pela **ETEC Polivalente Americana**.
+Projeto desenvolvido para o hackateen pela **ETEC Polivalente Americana**.
 
 ---
 

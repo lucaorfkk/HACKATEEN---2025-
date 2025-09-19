@@ -15,9 +15,11 @@ Projeto desenvolvido para o hackateen pela **ETEC Polivalente Americana**.
 
 ## Descrição do projeto
 
-Carbon Techo é uma empresa criada com o propósito de ajudar outras organizações a monitorar, controlar e reduzir suas emissões de carbono. Nosso objetivo é impulsionar práticas mais conscientes e responsáveis, contribuindo para um futuro melhor e ambientalmente sustentável.
+Carbon Techo é uma empresa criada com o propósito de enfrentar um dos maiores desafios ambientais da atualidade: o excesso de emissões de carbono geradas por organizações. Esse problema impacta diretamente o equilíbrio climático e a qualidade de vida das próximas gerações.
 
-Acreditamos que a inovação aliada à responsabilidade socioambiental é o caminho para transformar o presente e garantir qualidade de vida para as próximas gerações.
+Nossa proposta é oferecer ferramentas e estratégias que auxiliem empresas a monitorar, controlar e reduzir sua pegada de carbono. Mais do que um serviço, buscamos ser parceiros na transformação, incentivando práticas conscientes e responsáveis que unem inovação e sustentabilidade.
+
+Acreditamos que cuidar do presente é garantir um futuro melhor. Por isso, trabalhamos para impulsionar soluções que alinham crescimento econômico e preservação ambiental.
 
 ---
 

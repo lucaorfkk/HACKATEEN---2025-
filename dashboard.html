@@ -278,8 +278,6 @@
                     <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                 </ul>
             </nav>
-
-            
         </div>
     </header>
 
@@ -681,11 +679,10 @@
             <div class="secao-rodape">
                 <h3>Contato</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
-                <p><i class="fas fa-phone"></i> (19) 99835-5378 </p>
+                <p><i class="fas fa-phone"></i> (19) 99835-5378</p>
                 <p><i class="fas fa-envelope"></i> carbontecho@gmail.com</p>
                 <p><i class="fas fa-globe"></i> www.carbontecho.com.br</p>
             </div>
-        </div>
         </div>
         
         <div class="rodape-inferior">
@@ -731,6 +728,24 @@
                 pontos: 100
             }
         };
+
+        // FUNÇÃO PARA OBTER VALOR BASE POR PERÍODO
+        function obterValorBasePorPeriodo(periodo) {
+            switch(periodo) {
+                case 'hoje':
+                    return 41.2;
+                case 'semana':
+                    return 287.3;
+                case 'mes':
+                    return 1247.5;
+                case 'trimestre':
+                    return 3892.1;
+                case 'ano':
+                    return 14567.8;
+                default:
+                    return 1247.5;
+            }
+        }
 
         // FUNÇÃO PARA INICIALIZAR DASHBOARD
         function inicializarDashboard() {
@@ -793,6 +808,8 @@
                 }
                 esconderCarregando();
                 atualizarUltimaAtualizacao();
+                // Reaplicar conversão de unidades após mudança de período
+                atualizarUnidades();
             }, 1200);
         }
 
@@ -902,7 +919,7 @@
             }
         }
 
-        // FUNÇÃO PARA ALTERAR UNIDADES
+        // FUNÇÃO PARA ALTERAR UNIDADES - CORRIGIDA
         function atualizarUnidades() {
             const unidade = document.getElementById('selecao-unidade').value;
             const periodo = document.getElementById('selecao-periodo').value;
@@ -917,7 +934,7 @@
                     rotuloUnidade = 'kg CO₂';
                     break;
                 case 'ton':
-                    multiplicador = 100;
+                    multiplicador = 1;
                     rotuloUnidade = 'Toneladas CO₂';
                     break;
                 case 'mt':
@@ -926,15 +943,17 @@
                     break;
             }
             
-            // ATUALIZAR VALOR DAS EMISSÕES
-            const valorAtual = parseFloat(document.getElementById('emissoes-totais').textContent.replace(/[^\d.-]/g, ''));
-            const novoValor = (valorAtual / dadosDashboard.emissoesTotais) * dadosDashboard.emissoesTotais * multiplicador;
+            // CORRIGIDO: Usar valor base, não valor da tela
+            const valorBase = obterValorBasePorPeriodo(periodo);
+            const novoValor = valorBase * multiplicador;
             
             animarNumero('emissoes-totais', novoValor);
             
             // ATUALIZAR LABEL
             const rotulos = document.querySelectorAll('.rotulo-estatistica');
-            rotulos[0].textContent = rotuloUnidade + ` (${periodo === 'mes' ? 'Mês' : periodo === 'semana' ? 'Semana' : periodo === 'hoje' ? 'Hoje' : periodo === 'trimestre' ? 'Trimestre' : 'Ano'})`;
+            if (rotulos.length > 0) {
+                rotulos[0].textContent = rotuloUnidade + ` (${periodo === 'mes' ? 'Mês' : periodo === 'semana' ? 'Semana' : periodo === 'hoje' ? 'Hoje' : periodo === 'trimestre' ? 'Trimestre' : 'Ano'})`;
+            }
         }
 
         // FUNÇÃO PARA EXPORTAR RELATÓRIO
@@ -1005,13 +1024,17 @@ Relatório gerado automaticamente pelo Carbon Techo
         // FUNÇÃO PARA MOSTRAR LOADING
         function mostrarCarregando() {
             const carregando = document.getElementById('carregando');
-            carregando.style.display = 'block';
+            if (carregando) {
+                carregando.style.display = 'block';
+            }
         }
 
         // FUNÇÃO PARA ESCONDER LOADING
         function esconderCarregando() {
             const carregando = document.getElementById('carregando');
-            carregando.style.display = 'none';
+            if (carregando) {
+                carregando.style.display = 'none';
+            }
         }
 
         // FUNÇÃO PARA ATUALIZAR ÚLTIMA ATUALIZAÇÃO
@@ -1021,7 +1044,10 @@ Relatório gerado automaticamente pelo Carbon Techo
                 hour: '2-digit', 
                 minute: '2-digit' 
             });
-            document.getElementById('tempo-atualizacao').textContent = stringTempo;
+            const elemento = document.getElementById('tempo-atualizacao');
+            if (elemento) {
+                elemento.textContent = stringTempo;
+            }
         }
 
         // FUNÇÃO PARA MOSTRAR NOTIFICAÇÕES
@@ -1034,6 +1060,10 @@ Relatório gerado automaticamente pelo Carbon Techo
             notificacao.style.right = '20px';
             notificacao.style.zIndex = '9999';
             notificacao.style.minWidth = '300px';
+            notificacao.style.padding = '1rem';
+            notificacao.style.borderRadius = '8px';
+            notificacao.style.backgroundColor = tipo === 'sucesso' ? '#d4edda' : tipo === 'aviso' ? '#fff3cd' : '#f8d7da';
+            notificacao.style.border = `1px solid ${tipo === 'sucesso' ? '#c3e6cb' : tipo === 'aviso' ? '#ffeaa7' : '#f5c6cb'}`;
             notificacao.innerHTML = `<strong>${mensagem}</strong>`;
             
             document.body.appendChild(notificacao);

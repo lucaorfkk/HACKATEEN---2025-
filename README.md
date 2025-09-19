@@ -42,3 +42,5 @@ Como o projeto utiliza apenas **HTML, CSS e JavaScript**, não é necessário in
 ## Observação
 
 Este projeto é um protótipo acadêmico desenvolvido para o hackathon e pode ser expandido futuramente com integrações e banco de dados para monitoramento em tempo real.
+
+[Assista ao nosso pitch de 5 minutos feito para a apresentação! ] https://drive.google.com/file/d/1eeRPAzu4KyY46rf6d7nc580YHXQ73bmg/view?usp=drivesdk

@@ -25,6 +25,8 @@ Acreditamos que a inovação aliada à responsabilidade socioambiental é o cami
 
 Como o projeto utiliza apenas **HTML, CSS e JavaScript**, não é necessário instalar dependências.
 
+(Vocês também podem optar por utilizar o link do site hospedado no vercel aqui mesmo no repositório) (hackateen-2025.vercel.app)
+
 1. Faça o download ou clone este repositório:
 
    ```bash

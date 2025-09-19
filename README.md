@@ -15,7 +15,9 @@ Projeto desenvolvido para o hackateen pela **ETEC Polivalente Americana**.
 
 ## Descrição do projeto
 
-Até o momento, a quantificação dos gases de efeito estufa (GEE) produzidos por grandes empresas permanece um mistério, com dados frequentemente superficiais e desatualizados. Nosso site vem para resolver esse problema: oferecemos uma plataforma que permite **detecção, quantificação e monitoramento contínuo das emissões de GEE** nas operações empresariais, de forma simples e acessível.
+Carbon Techo é uma empresa criada com o propósito de ajudar outras organizações a monitorar, controlar e reduzir suas emissões de carbono. Nosso objetivo é impulsionar práticas mais conscientes e responsáveis, contribuindo para um futuro melhor e ambientalmente sustentável.
+
+Acreditamos que a inovação aliada à responsabilidade socioambiental é o caminho para transformar o presente e garantir qualidade de vida para as próximas gerações.
 
 ---
 

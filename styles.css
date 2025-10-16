@@ -307,6 +307,19 @@ textarea.controle-formulario {
   min-height: 120px;
 }
 
+/* Campo inválido */
+.campo-invalido {
+  border-color: var(--perigo);
+}
+
+/* Mensagem de erro */
+.mensagem-erro {
+  color: var(--perigo);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
 /* ===== BOTÕES =====
    Sistema de botões reutilizável */
 
@@ -564,6 +577,943 @@ textarea.controle-formulario {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* ===== ESTILOS ESPECÍFICOS PARA DASHBOARD ===== */
+
+/* Container principal do dashboard */
+.conteiner-dashboard {
+  padding: 2rem 0;
+}
+
+/* Grid responsivo para widgets */
+.grade-dashboard {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Layout específico para diferentes seções */
+.linha-estatisticas {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.linha-principal {
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+/* Cards do dashboard */
+.card-dashboard {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+  border-left: 4px solid var(--cor-secundaria);
+}
+
+/* Cabeçalho dos cards */
+.cabecalho-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.titulo-card {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+/* Indicadores de tendência */
+.indicador-tendencia {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.tendencia-alta {
+  color: var(--perigo);
+}
+
+.tendencia-baixa {
+  color: var(--sucesso);
+}
+
+.tendencia-estavel {
+  color: var(--texto-cinza);
+}
+
+/* Área do gráfico */
+.area-grafico {
+  height: 300px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gráfico simulado */
+.placeholder-grafico {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 1rem;
+}
+
+/* Lista de atividades */
+.lista-atividades {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.item-atividade {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.item-atividade:hover {
+  background-color: var(--verde-claro);
+}
+
+.icone-atividade {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.info-atividade h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto-escuro);
+  margin-bottom: 0.25rem;
+}
+
+.info-atividade p {
+  font-size: 0.8rem;
+  color: var(--texto-cinza);
+  margin: 0;
+}
+
+.tempo-atividade {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--texto-cinza);
+}
+
+/* Filtros e controles */
+.controles-dashboard {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.grupo-controle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rotulo-controle {
+  font-weight: 500;
+  color: var(--texto-escuro);
+  font-size: 0.9rem;
+}
+
+select.controle-formulario {
+  width: auto;
+  min-width: 150px;
+}
+
+/* Área de usuário no header */
+.area-usuario {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--raio-borda);
+  color: var(--branco);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.info-usuario:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.avatar-usuario {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--cor-destaque);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Loading spinner */
+.carregando {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid var(--cor-secundaria);
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA PÁGINA DE LOGIN ===== */
+
+/* Container principal do login */
+.conteiner-login {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
+}
+
+/* Seção de ilustração (esquerda) */
+.secao-ilustracao {
+  flex: 1;
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+  color: var(--branco);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Conteúdo da ilustração */
+.conteudo-ilustracao {
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Ícone grande da ilustração */
+.icone-grande {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  color: var(--branco);
+}
+
+/* Título da ilustração */
+.conteudo-ilustracao h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Texto da ilustração */
+.conteudo-ilustracao p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Seção do formulário (direita) */
+.secao-formulario {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--branco);
+}
+
+/* Card do formulário de login */
+.card-login {
+  width: 100%;
+  max-width: 400px;
+  background: var(--branco);
+  padding: 2.5rem;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Logo no formulário */
+.logo-login {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-login .icone-logo {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--branco);
+}
+
+.logo-login h1 {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+
+/* Título do formulário */
+.titulo-formulario {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--texto-escuro);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Grupo de formulário com ícone */
+.grupo-formulario-com-icone {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Ícone dentro do campo */
+.icone-campo {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--texto-cinza);
+  z-index: 1;
+}
+
+/* Campo com ícone */
+.controle-formulario-com-icone {
+  padding-left: 3rem;
+  width: 100%;
+}
+
+/* Checkbox lembrar-me */
+.lembrar-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.lembrar-me input {
+  margin-right: 0.5rem;
+}
+
+/* Botão de login */
+.botao-login {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  color: var(--branco);
+  border: none;
+  border-radius: var(--raio-borda);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicao);
+  box-shadow: var(--sombra);
+}
+
+.botao-login:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Links adicionais */
+.links-adicionais {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.links-adicionais a {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.links-adicionais a:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+/* Divisória */
+.divisoria {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--texto-cinza);
+}
+
+.divisoria::before,
+.divisoria::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.divisoria span {
+  padding: 0 1rem;
+}
+
+/* Botões de login social */
+.botoes-sociais {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.botao-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border: 1px solid #E0E0E0;
+  border-radius: var(--raio-borda);
+  background: var(--branco);
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+.botao-social:hover {
+  background: var(--cinza-claro);
+}
+
+.botao-social i {
+  margin-right: 0.5rem;
+}
+
+/* Mensagem de registro */
+.mensagem-registro {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E0E0E0;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA PÁGINA DE SERVIÇOS ===== */
+
+/* Seção de serviços principais */
+.grade-servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card-servico {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+  text-align: center;
+  border-top: 4px solid var(--cor-secundaria);
+}
+
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+}
+
+.icone-servico {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--branco);
+  font-size: 2rem;
+}
+
+.card-servico h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 1rem;
+}
+
+.card-servico .preco {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cor-secundaria);
+  margin: 1.5rem 0;
+}
+
+.card-servico .periodo {
+  font-size: 0.9rem;
+  color: var(--texto-cinza);
+}
+
+.lista-caracteristicas {
+  list-style: none;
+  text-align: left;
+  margin: 1.5rem 0;
+}
+
+.lista-caracteristicas li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.lista-caracteristicas li:last-child {
+  border-bottom: none;
+}
+
+.lista-caracteristicas i {
+  color: var(--cor-secundaria);
+  margin-right: 0.5rem;
+}
+
+/* Seção de processo */
+.processo {
+  background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
+}
+
+.grade-processo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  counter-reset: processo;
+}
+
+.card-processo {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  position: relative;
+  text-align: center;
+}
+
+.card-processo::before {
+  counter-increment: processo;
+  content: counter(processo);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--cor-secundaria);
+  color: var(--branco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.icone-processo {
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  margin: 1.5rem 0;
+}
+
+/* Seção de perguntas frequentes */
+.acordeao-perguntas {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.item-acordeao {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  margin-bottom: 1rem;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.pergunta-acordeao {
+  padding: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--cor-primaria);
+}
+
+.pergunta-acordeao:hover {
+  background: var(--verde-claro);
+}
+
+.pergunta-acordeao i {
+  transition: var(--transicao);
+}
+
+.resposta-acordeao {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.item-acordeao.ativo .resposta-acordeao {
+  max-height: 500px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.item-acordeao.ativo .pergunta-acordeao i {
+  transform: rotate(180deg);
+}
+
+/* Seção de depoimentos */
+.depoimentos {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+  color: var(--branco);
+}
+
+.grade-depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card-depoimento {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--raio-borda);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.texto-depoimento {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.autor-depoimento {
+  display: flex;
+  align-items: center;
+}
+
+.foto-autor {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--branco);
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.info-autor h4 {
+  margin-bottom: 0.25rem;
+}
+
+.info-autor p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* Botão de chamada para ação */
+.chamada-acao {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA PÁGINA SOBRE ===== */
+
+/* Seção de missão, visão e valores */
+.secao-valores {
+  background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
+}
+
+.grade-valores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card-valor {
+  text-align: center;
+  padding: 2rem;
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+}
+
+.card-valor:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+}
+
+.icone-valor {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--branco);
+  font-size: 2rem;
+}
+
+/* Timeline da história */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--cor-secundaria);
+  transform: translateX(-50%);
+}
+
+.item-timeline {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 50%;
+  padding: 0 2rem;
+}
+
+.item-timeline:nth-child(odd) {
+  left: 0;
+}
+
+.item-timeline:nth-child(even) {
+  left: 50%;
+}
+
+.item-timeline::before {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  width: 20px;
+  height: 20px;
+  background: var(--cor-secundaria);
+  border-radius: 50%;
+}
+
+.item-timeline:nth-child(odd)::before {
+  right: -10px;
+}
+
+.item-timeline:nth-child(even)::before {
+  left: -10px;
+}
+
+.conteudo-timeline {
+  background: var(--branco);
+  padding: 1.5rem;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra);
+}
+
+.ano-timeline {
+  font-weight: 700;
+  color: var(--cor-secundaria);
+  margin-bottom: 0.5rem;
+}
+
+/* Links sociais do membro */
+.links-sociais-membro {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.link-social-membro {
+  width: 35px;
+  height: 35px;
+  background: var(--cinza-claro);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.link-social-membro:hover {
+  background: var(--cor-secundaria);
+  color: var(--branco);
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA PÁGINA DE CONTATO ===== */
+
+/* Layout de contato */
+.layout-contato {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Informações de contato */
+.informacoes-contato {
+  background: var(--verde-claro);
+  padding: 2.5rem;
+  border-radius: var(--raio-borda);
+}
+
+.informacoes-contato h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.lista-contato {
+  list-style: none;
+}
+
+.item-contato {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.icone-contato {
+  width: 40px;
+  height: 40px;
+  background: var(--cor-secundaria);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.texto-contato h4 {
+  margin-bottom: 0.25rem;
+  color: var(--cor-primaria);
+}
+
+.texto-contato p,
+.texto-contato a {
+  color: var(--texto-cinza);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.texto-contato a:hover {
+  color: var(--cor-secundaria);
+}
+
+/* Formulário de contato */
+.formulario-contato {
+  background: var(--branco);
+  padding: 2.5rem;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra);
+}
+
+.formulario-contato h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Mapa */
+.mapa {
+  margin-top: 3rem;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  height: 400px;
+  background: var(--cinza-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-cinza);
+}
+
+/* Redes sociais */
+.redes-sociais-contato {
+  margin-top: 2rem;
+}
+
+.redes-sociais-contato h3 {
+  margin-bottom: 1rem;
+  color: var(--cor-primaria);
+}
+
+.links-redes-sociais {
+  display: flex;
+  gap: 1rem;
+}
+
+.link-rede-social {
+  width: 45px;
+  height: 45px;
+  background: var(--cor-secundaria);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.link-rede-social:hover {
+  background: var(--cor-primaria);
+  transform: translateY(-2px);
+}
+
+/* Horário de atendimento */
+.horario-atendimento {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.horario-atendimento h3 {
+  margin-bottom: 1rem;
+  color: var(--cor-primaria);
+}
+
 /* ===== DESIGN RESPONSIVO =====
    Media queries para diferentes tamanhos de tela */
 
@@ -637,6 +1587,92 @@ textarea.controle-formulario {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
+  /* Dashboard responsivo */
+  .linha-principal {
+    grid-template-columns: 1fr;
+  }
+  
+  .controles-dashboard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .grupo-controle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  select.controle-formulario {
+    width: 100%;
+  }
+
+  .area-usuario {
+    margin-left: auto;
+  }
+
+  /* Login responsivo */
+  .secao-ilustracao {
+    display: none;
+  }
+
+  .botoes-sociais {
+    grid-template-columns: 1fr;
+  }
+
+  .card-login {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Serviços responsivo */
+  .card-servico {
+    padding: 2rem 1.5rem;
+  }
+  
+  .pergunta-acordeao {
+    padding: 1.25rem;
+  }
+
+  /* Sobre responsivo */
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .item-timeline {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 0;
+  }
+  
+  .item-timeline:nth-child(even) {
+    left: 0;
+  }
+  
+  .item-timeline::before {
+    left: 20px;
+  }
+  
+  .item-timeline:nth-child(even)::before {
+    left: 20px;
+  }
+
+  /* Contato responsivo */
+  .layout-contato {
+    grid-template-columns: 1fr;
+  }
+
+  .informacoes-contato,
+  .formulario-contato {
+    padding: 2rem 1.5rem;
+  }
+  
+  .item-contato {
+    flex-direction: column;
+  }
+  
+  .icone-contato {
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Smartphones pequenos */
@@ -653,5 +1689,628 @@ textarea.controle-formulario {
   /* Equipe em coluna única */
   .grade-equipe {
     grid-template-columns: 1fr;
+  }
+
+  .secao-formulario {
+    padding: 1rem;
+  }
+}
+
+/* Desktop grande - mostra ilustração do login */
+@media (min-width: 768px) {
+  .secao-ilustracao {
+    display: flex;
+  }
+}
+/* ===== ESTILOS ADICIONAIS PARA LOGIN E CADASTRO ===== */
+
+/* Mensagem de feedback (sucesso/erro) */
+.mensagem-feedback {
+  padding: 1rem;
+  border-radius: var(--raio-borda);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mensagem-feedback.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensagem-feedback.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.mensagem-feedback.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Botão toggle para mostrar/ocultar senha */
+.botao-toggle-senha {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--texto-cinza);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transicao);
+  z-index: 2;
+}
+
+.botao-toggle-senha:hover {
+  color: var(--cor-secundaria);
+}
+
+.botao-toggle-senha i {
+  font-size: 1rem;
+}
+
+/* Ajuste para campos com botão de toggle */
+.grupo-formulario-com-icone {
+  position: relative;
+}
+
+.controle-formulario-com-icone {
+  padding-right: 3rem;
+}
+
+/* Indicador de força da senha */
+.indicador-forca-senha {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+.barra-forca-senha {
+  height: 4px;
+  background: #E0E0E0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progresso-forca-senha {
+  height: 100%;
+  width: 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.progresso-forca-senha.fraca {
+  width: 33%;
+  background: var(--perigo);
+}
+
+.progresso-forca-senha.media {
+  width: 66%;
+  background: var(--aviso);
+}
+
+.progresso-forca-senha.forte {
+  width: 100%;
+  background: var(--sucesso);
+}
+
+.texto-forca-senha {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.texto-forca-senha.fraca {
+  color: var(--perigo);
+}
+
+.texto-forca-senha.media {
+  color: var(--aviso);
+}
+
+.texto-forca-senha.forte {
+  color: var(--sucesso);
+}
+
+/* Opções de login (lembrar-me e esqueci senha) */
+.opcoes-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.link-esqueci-senha {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transicao);
+}
+
+.link-esqueci-senha:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+/* Spinner no botão */
+.spinner-botao {
+  margin-left: 0.5rem;
+}
+
+.botao-login.carregando .texto-botao {
+  display: none;
+}
+
+.botao-login.carregando .spinner-botao {
+  display: inline-block;
+}
+
+/* Modal de recuperação de senha */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--sombra-hover);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #E0E0E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  color: var(--cor-primaria);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.botao-fechar-modal {
+  background: none;
+  border: none;
+  color: var(--texto-cinza);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transicao);
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.botao-fechar-modal:hover {
+  background: var(--cinza-claro);
+  color: var(--cor-primaria);
+}
+
+.modal-body {
+  padding: 2rem 1.5rem;
+}
+
+.modal-body p {
+  color: var(--texto-cinza);
+  margin-bottom: 1.5rem;
+}
+
+/* Animação de shake para erros */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+/* Campo com erro */
+.controle-formulario.erro {
+  border-color: var(--perigo);
+  animation: shake 0.5s ease;
+}
+
+.controle-formulario.sucesso {
+  border-color: var(--sucesso);
+}
+
+/* Responsividade para modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem 1rem;
+  }
+}
+/* ===== ESTILOS ADICIONAIS PARA LOGIN E CADASTRO =====
+   COPIE E COLE NO FINAL DO SEU ARQUIVO styles.css */
+
+/* Mensagem de feedback (sucesso/erro) */
+.mensagem-feedback {
+  padding: 1rem;
+  border-radius: var(--raio-borda);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mensagem-feedback.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensagem-feedback.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.mensagem-feedback.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Botão toggle para mostrar/ocultar senha */
+.botao-toggle-senha {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--texto-cinza);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transicao);
+  z-index: 2;
+}
+
+.botao-toggle-senha:hover {
+  color: var(--cor-secundaria);
+}
+
+.botao-toggle-senha i {
+  font-size: 1rem;
+}
+
+/* Ajuste para campos com botão de toggle */
+.grupo-formulario-com-icone {
+  position: relative;
+}
+
+.controle-formulario-com-icone {
+  padding-right: 3rem;
+}
+
+/* Indicador de força da senha */
+.indicador-forca-senha {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+.barra-forca-senha {
+  height: 4px;
+  background: #E0E0E0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progresso-forca-senha {
+  height: 100%;
+  width: 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.progresso-forca-senha.fraca {
+  width: 33%;
+  background: var(--perigo);
+}
+
+.progresso-forca-senha.media {
+  width: 66%;
+  background: var(--aviso);
+}
+
+.progresso-forca-senha.forte {
+  width: 100%;
+  background: var(--sucesso);
+}
+
+.texto-forca-senha {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.texto-forca-senha.fraca {
+  color: var(--perigo);
+}
+
+.texto-forca-senha.media {
+  color: var(--aviso);
+}
+
+.texto-forca-senha.forte {
+  color: var(--sucesso);
+}
+
+/* Opções de login (lembrar-me e esqueci senha) */
+.opcoes-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.link-esqueci-senha {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transicao);
+}
+
+.link-esqueci-senha:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+/* Spinner no botão */
+.spinner-botao {
+  margin-left: 0.5rem;
+}
+
+.botao-login.carregando .texto-botao {
+  display: none;
+}
+
+.botao-login.carregando .spinner-botao {
+  display: inline-block;
+}
+
+/* Modal de recuperação de senha */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--sombra-hover);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #E0E0E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  color: var(--cor-primaria);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.botao-fechar-modal {
+  background: none;
+  border: none;
+  color: var(--texto-cinza);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transicao);
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.botao-fechar-modal:hover {
+  background: var(--cinza-claro);
+  color: var(--cor-primaria);
+}
+
+.modal-body {
+  padding: 2rem 1.5rem;
+}
+
+.modal-body p {
+  color: var(--texto-cinza);
+  margin-bottom: 1.5rem;
+}
+
+/* Animação de shake para erros */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+/* Campo com erro */
+.controle-formulario.erro {
+  border-color: var(--perigo);
+  animation: shake 0.5s ease;
+}
+
+.controle-formulario.sucesso {
+  border-color: var(--sucesso);
+}
+
+/* Menu dropdown do usuário */
+.menu-dropdown-usuario {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--branco);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-hover);
+  min-width: 200px;
+  margin-top: 0.5rem;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.menu-dropdown-usuario a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--texto-escuro) !important;
+  text-decoration: none;
+  transition: var(--transicao);
+  background: transparent !important;
+}
+
+.menu-dropdown-usuario a:hover {
+  background: var(--verde-claro) !important;
+  color: var(--cor-primaria) !important;
+  transform: none !important;
+}
+
+.menu-dropdown-usuario a i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+.link-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsividade para modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem 1rem;
+  }
+  
+  .menu-dropdown-usuario {
+    min-width: 180px;
   }
 }

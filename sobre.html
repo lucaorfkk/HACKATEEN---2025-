@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
-    <title> Carbon Techo - Sobre Nós</title>
+    <title>Carbon Techo - Sobre Nós</title>
     <meta name="description" content="Conheça a Carbon Techo, nossa missão, visão e equipe dedicada a reduzir emissões de carbono através de tecnologia inovadora.">
     
     <!-- LINK PARA CSS EXTERNO -->
@@ -17,211 +17,6 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS INTERNO ESPECÍFICO PARA PÁGINA SOBRE -->
-    <style>
-        /* ===== ESTILOS ESPECÍFICOS PARA PÁGINA SOBRE ===== */
-        
-        /* SEÇÃO DE MISSÃO, VISÃO E VALORES */
-        .secao-valores {
-            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--branco) 100%);
-        }
-        
-        .grade-valores {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card-valor {
-            text-align: center;
-            padding: 2rem;
-            background: var(--branco);
-            border-radius: var(--raio-borda);
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-        }
-        
-        .card-valor:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sombra-hover);
-        }
-        
-        .icone-valor {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--branco);
-            font-size: 2rem;
-        }
-        
-        /* TIMELINE DA HISTÓRIA */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--cor-secundaria);
-            transform: translateX(-50%);
-        }
-        
-        .item-timeline {
-            position: relative;
-            margin-bottom: 3rem;
-            width: 50%;
-            padding: 0 2rem;
-        }
-        
-        .item-timeline:nth-child(odd) {
-            left: 0;
-        }
-        
-        .item-timeline:nth-child(even) {
-            left: 50%;
-        }
-        
-        .item-timeline::before {
-            content: '';
-            position: absolute;
-            top: 1.5rem;
-            width: 20px;
-            height: 20px;
-            background: var(--cor-secundaria);
-            border-radius: 50%;
-        }
-        
-        .item-timeline:nth-child(odd)::before {
-            right: -10px;
-        }
-        
-        .item-timeline:nth-child(even)::before {
-            left: -10px;
-        }
-        
-        .conteudo-timeline {
-            background: var(--branco);
-            padding: 1.5rem;
-            border-radius: var(--raio-borda);
-            box-shadow: var(--sombra);
-        }
-        
-        .ano-timeline {
-            font-weight: 700;
-            color: var(--cor-secundaria);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* EQUIPE */
-        .grade-equipe {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .membro-equipe {
-            text-align: center;
-            background: var(--branco);
-            border-radius: var(--raio-borda);
-            padding: 2rem;
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-        }
-        
-        .membro-equipe:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sombra-hover);
-        }
-        
-        .foto-membro {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--branco);
-            font-size: 2rem;
-            font-weight: 600;
-        }
-        
-        .membro-equipe h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--cor-primaria);
-            margin-bottom: 0.5rem;
-        }
-        
-        .membro-equipe .cargo {
-            color: var(--cor-secundaria);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        
-        .links-sociais-membro {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .link-social-membro {
-            width: 35px;
-            height: 35px;
-            background: var(--cinza-claro);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--cor-primaria);
-            text-decoration: none;
-            transition: var(--transicao);
-        }
-        
-        .link-social-membro:hover {
-            background: var(--cor-secundaria);
-            color: var(--branco);
-        }
-        
-        /* RESPONSIVIDADE DA TIMELINE */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .item-timeline {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-            
-            .item-timeline:nth-child(even) {
-                left: 0;
-            }
-            
-            .item-timeline::before {
-                left: 20px;
-            }
-            
-            .item-timeline:nth-child(even)::before {
-                left: 20px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- ===== HEADER FIXO COM NAVEGAÇÃO ===== -->
@@ -298,8 +93,6 @@
             </div>
         </section>
 
-        
-
         <!-- SEÇÃO DA EQUIPE -->
         <section class="secao" style="background-color: var(--verde-claro);">
             <div class="conteiner">
@@ -310,7 +103,6 @@
                 <div class="grade-equipe">
                     <!-- MEMBRO 1 -->
                     <div class="membro-equipe">
-                        
                         <h4>Lucas de Campos</h4>
                         <div class="cargo">CEO & Fundador</div>
                         <p></p>
@@ -322,7 +114,6 @@
                     
                     <!-- MEMBRO 2 -->
                     <div class="membro-equipe">
-                        
                         <h4>Salluan Morato</h4>
                         <div class="cargo">CEO & Fundador</div>
                         <p></p>
@@ -334,7 +125,6 @@
                     
                     <!-- MEMBRO 3 -->
                     <div class="membro-equipe">
-                        
                         <h4>Arthur Cavalini</h4>
                         <div class="cargo">CEO & Fundador</div>
                         <p></p>
@@ -346,7 +136,6 @@
                     
                     <!-- MEMBRO 4 -->
                     <div class="membro-equipe">
-                       
                         <h4>Nikolas Giardini</h4>
                         <div class="cargo">CEO & Fundador</div>
                         <p></p>
@@ -358,8 +147,6 @@
                 </div>
             </div>
         </section>
-
-        
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -406,7 +193,7 @@
             <div class="secao-rodape">
                 <h3>Contato</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
-                <p><i class="fas fa-phone"></i> (19) 99835-5378 </p>
+                <p><i class="fas fa-phone"></i> (19) 99835-5378</p>
                 <p><i class="fas fa-envelope"></i> carbontecho@gmail.com</p>
                 <p><i class="fas fa-globe"></i> www.carbontecho.com.br</p>
             </div>
@@ -419,69 +206,6 @@
     </footer>
 
     <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        /* FUNÇÃO PARA TOGGLE DO MENU MOBILE */
-        function alternarMenuMobile() {
-            const menuNavegacao = document.getElementById('menu-navegacao');
-            menuNavegacao.classList.toggle('mostrar');
-        }
-
-        /* FECHAR MENU MOBILE AO CLICAR EM UM LINK */
-        document.addEventListener('DOMContentLoaded', function() {
-            const linksNavegacao = document.querySelectorAll('nav a');
-            const menuNavegacao = document.getElementById('menu-navegacao');
-            
-            linksNavegacao.forEach(link => {
-                link.addEventListener('click', function() {
-                    menuNavegacao.classList.remove('mostrar');
-                });
-            });
-        });
-
-        /* ANIMAÇÃO SUAVE AO ROLAR A PÁGINA */
-        window.addEventListener('scroll', function() {
-            const cabecalho = document.querySelector('.cabecalho');
-            
-            if (window.scrollY > 50) {
-                cabecalho.style.backgroundColor = 'rgba(45, 90, 39, 0.95)';
-            } else {
-                cabecalho.style.backgroundColor = '';
-            }
-        });
-
-        /* ANIMAÇÃO DA TIMELINE */
-        document.addEventListener('DOMContentLoaded', function() {
-            const itensTimeline = document.querySelectorAll('.item-timeline');
-            
-            function verificarTimeline() {
-                const triggerBottom = window.innerHeight * 0.8;
-                
-                itensTimeline.forEach(item => {
-                    const itemTop = item.getBoundingClientRect().top;
-                    
-                    if (itemTop < triggerBottom) {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateX(0)';
-                    }
-                });
-            }
-            
-            // Configurar estado inicial
-            itensTimeline.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
-                if (item.classList.contains('item-timeline:nth-child(odd)')) {
-                    item.style.transform = 'translateX(-50px)';
-                } else {
-                    item.style.transform = 'translateX(50px)';
-                }
-            });
-            
-            // Verificar ao carregar e ao rolar
-            window.addEventListener('scroll', verificarTimeline);
-            verificarTimeline();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

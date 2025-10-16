@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- META TAGS BÁSICAS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
+    <title>Carbon Techo - Cadastro</title>
+    <meta name="description" content="Crie sua conta CarbonTracker para começar a monitorar e gerenciar suas emissões de carbono.">
+    
+    <!-- LINK PARA CSS EXTERNO -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ===== CONTAINER PRINCIPAL ===== -->
+    <div class="conteiner-login">
+        <!-- SEÇÃO DE ILUSTRAÇÃO (VISÍVEL APENAS EM DESKTOP) -->
+        <div class="secao-ilustracao">
+            <div class="conteudo-ilustracao">
+                <div class="icone-grande"><i class="fas fa-leaf"></i></div>
+                <h2>Comece Sua Jornada Sustentável</h2>
+                <p>Crie sua conta e tenha acesso completo às ferramentas de monitoramento de carbono mais avançadas do mercado.</p>
+            </div>
+        </div>
+        
+        <!-- SEÇÃO DO FORMULÁRIO -->
+        <div class="secao-formulario">
+            <div class="card-login">
+                <!-- LOGO -->
+                <div class="logo-login">
+                    <div class="icone-logo"><i class="fas fa-leaf"></i></div>
+                    <h1>Carbon Techo</h1>
+                </div>
+                
+                <!-- TÍTULO DO FORMULÁRIO -->
+                <h2 class="titulo-formulario">Criar Nova Conta</h2>
+                
+                <!-- MENSAGEM DE ERRO/SUCESSO -->
+                <div id="mensagem-feedback" class="mensagem-feedback" style="display: none;"></div>
+                
+                <!-- FORMULÁRIO DE CADASTRO -->
+                <form id="formulario-cadastro">
+                    <!-- CAMPO NOME COMPLETO -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-user icone-campo"></i>
+                        <input type="text" id="nome-cadastro" class="controle-formulario controle-formulario-com-icone" placeholder="Nome completo" required>
+                    </div>
+                    
+                    <!-- CAMPO EMAIL -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-envelope icone-campo"></i>
+                        <input type="email" id="email-cadastro" class="controle-formulario controle-formulario-com-icone" placeholder="Seu e-mail" required>
+                    </div>
+                    
+                    <!-- CAMPO EMPRESA -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-building icone-campo"></i>
+                        <input type="text" id="empresa-cadastro" class="controle-formulario controle-formulario-com-icone" placeholder="Nome da empresa (opcional)">
+                    </div>
+                    
+                    <!-- CAMPO SENHA -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-lock icone-campo"></i>
+                        <input type="password" id="senha-cadastro" class="controle-formulario controle-formulario-com-icone" placeholder="Crie uma senha" required minlength="6">
+                        <button type="button" class="botao-toggle-senha" onclick="toggleSenhaVisibilidade('senha-cadastro', this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- CAMPO CONFIRMAR SENHA -->
+                    <div class="grupo-formulario-com-icone">
+                        <i class="fas fa-lock icone-campo"></i>
+                        <input type="password" id="confirmar-senha" class="controle-formulario controle-formulario-com-icone" placeholder="Confirme sua senha" required minlength="6">
+                        <button type="button" class="botao-toggle-senha" onclick="toggleSenhaVisibilidade('confirmar-senha', this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- INDICADOR DE FORÇA DA SENHA -->
+                    <div class="indicador-forca-senha" style="display: none;">
+                        <div class="barra-forca-senha">
+                            <div class="progresso-forca-senha" id="progresso-senha"></div>
+                        </div>
+                        <span class="texto-forca-senha" id="texto-forca-senha"></span>
+                    </div>
+                    
+                    <!-- TERMOS E CONDIÇÕES -->
+                    <div class="lembrar-me">
+                        <input type="checkbox" id="aceitar-termos" required>
+                        <label for="aceitar-termos">Aceito os <a href="#" style="color: var(--cor-secundaria);">Termos de Uso</a> e <a href="#" style="color: var(--cor-secundaria);">Política de Privacidade</a></label>
+                    </div>
+                    
+                    <!-- BOTÃO DE CADASTRO -->
+                    <button type="submit" class="botao-login">
+                        <span class="texto-botao">Criar Conta</span>
+                        <span class="spinner-botao" style="display: none;"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                </form>
+                
+                <!-- DIVISÓRIA -->
+                <div class="divisoria">
+                    <span>Ou cadastre-se com</span>
+                </div>
+                
+                <!-- BOTÕES DE LOGIN SOCIAL -->
+                <div class="botoes-sociais">
+                    <button class="botao-social" onclick="cadastroSocial('google')">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="botao-social" onclick="cadastroSocial('microsoft')">
+                        <i class="fab fa-microsoft"></i> Microsoft
+                    </button>
+                </div>
+                
+                <!-- MENSAGEM DE LOGIN -->
+                <div class="mensagem-registro">
+                    <p>Já tem uma conta? <a href="login.html">Faça login</a></p> <br>
+                    <p><a href="index.html">Voltar</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="script.js"></script>
+</body>
+</html>

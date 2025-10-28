@@ -11,6 +11,7 @@
     
     <!-- LINKS EXTERNOS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cssdashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -51,39 +52,39 @@
             <div class="conteiner">
                 
                 <!-- CONTROLES E FILTROS -->
-                <div class="controles-dashboard">
-                    <div class="grupo-controle">
-                        <span class="rotulo-controle">Período:</span>
-                        <select class="controle-formulario" id="selecao-periodo" onchange="atualizarDashboard()">
-                            <option value="hoje">Hoje</option>
-                            <option value="semana">Esta Semana</option>
-                            <option value="mes" selected>Este Mês</option>
-                            <option value="trimestre">Este Trimestre</option>
-                            <option value="ano">Este Ano</option>
-                        </select>
-                    </div>
-                    
-                    <div class="grupo-controle">
-                        <span class="rotulo-controle">Unidade:</span>
-                        <select class="controle-formulario" id="selecao-unidade" onchange="atualizarUnidades()">
-                            <option value="kg">kg CO₂</option>
-                            <option value="ton" selected>Toneladas CO₂</option>
-                            <option value="mt">Mil Toneladas CO₂</option>
-                        </select>
-                    </div>
-                    
-                    <div class="grupo-controle">
-                        <button class="botao botao-secundario" onclick="exportarRelatorio()">
-                            <i class="fas fa-download"></i> Exportar Relatório
-                        </button>
-                    </div>
-                    
-                    <div class="grupo-controle" style="margin-left: auto;">
-                        <span id="ultima-atualizacao" style="font-size: 0.9rem; color: var(--texto-cinza);">
-                            Última atualização: <span id="tempo-atualizacao">agora</span>
-                        </span>
-                    </div>
-                </div>
+<div class="controles-dashboard">
+    <div class="grupo-controle">
+        <label class="rotulo-controle" for="selecao-periodo">Período:</label>
+        <select class="controle-formulario" id="selecao-periodo" onchange="atualizarDashboard()">
+            <option value="hoje">Hoje</option>
+            <option value="semana">Esta Semana</option>
+            <option value="mes" selected>Este Mês</option>
+            <option value="trimestre">Este Trimestre</option>
+            <option value="ano">Este Ano</option>
+        </select>
+    </div>
+    
+    <div class="grupo-controle">
+        <label class="rotulo-controle" for="selecao-unidade">Unidade:</label>
+        <select class="controle-formulario" id="selecao-unidade" onchange="atualizarUnidades()">
+            <option value="kg">kg CO₂</option>
+            <option value="ton" selected>Toneladas CO₂</option>
+            <option value="mt">Mil Toneladas CO₂</option>
+        </select>
+    </div>
+    
+    <div class="grupo-controle">
+        <button class="botao botao-secundario" onclick="exportarRelatorio()">
+            <i class="fas fa-download"></i> Exportar Relatório
+        </button>
+    </div>
+    
+    <div class="grupo-controle" style="margin-left: auto;">
+        <label id="ultima-atualizacao" style="font-size: 0.9rem; color: var(--texto-cinza);">
+            Última atualização: <span id="tempo-atualizacao">agora</span>
+        </label>
+    </div>
+</div>
 
                 <!-- Loading Spinner -->
                 <div class="carregando" id="carregando"></div>
@@ -277,7 +278,6 @@
                                 <!-- CÍRCULO BASE -->
                                 <circle cx="150" cy="100" r="70" fill="transparent" stroke="#e0e0e0" stroke-width="2"/>
                                 
-                                <!-- FATIAS DO GRÁFICO (usando stroke-dasharray para simular pizza) -->
                                 <!-- Logística - 40% -->
                                 <circle cx="150" cy="100" r="60" fill="transparent" 
                                         stroke="var(--cor-secundaria)" stroke-width="20"
@@ -365,9 +365,6 @@
                     <div class="card-dashboard">
                         <div class="cabecalho-card">
                             <h3 class="titulo-card">Alertas e Recomendações</h3>
-                            <button class="botao botao-secundario" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
-                                Ver IA Insights
-                            </button>
                         </div>
                         
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
@@ -396,7 +393,7 @@
         </section>
     </main>
 
-    <!-- ===== FOOTER PADRÃO ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="rodape">
         <div class="conteudo-rodape">
             <div class="secao-rodape">
@@ -445,7 +442,6 @@
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script src="script.js"></script>
 </body>
 </html>

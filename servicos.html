@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- META TAGS BÁSICAS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
     <title>Carbon Techo - Nossos Serviços</title>
     <meta name="description" content="Conheça nossos serviços de monitoramento de carbono, relatórios personalizados e consultoria para redução de emissões.">
-    
-    <!-- LINK PARA CSS EXTERNO -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link rel="stylesheet" href="cssservicos.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ===== HEADER FIXO COM NAVEGAÇÃO ===== -->
     <header class="cabecalho">
         <div class="conteiner-cabecalho">
-            <!-- LOGO COM ÍCONE E TEXTO -->
             <a href="index.html" class="logo">
                 <div class="icone-logo"><i class="fas fa-leaf"></i></div>
                 <span>Carbon Techo</span>
             </a>
-            
-            <!-- NAVEGAÇÃO PRINCIPAL -->
             <nav>
-                <!-- BOTÃO PARA MENU MOBILE (oculto em desktop) -->
                 <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
                     <i class="fas fa-bars"></i>
                 </button>
-                
-                <!-- LISTA DE NAVEGAÇÃO -->
                 <ul id="menu-navegacao">
                     <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
                     <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
@@ -48,27 +33,19 @@
         </div>
     </header>
 
-    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
     <main class="principal">
         <!-- SEÇÃO DE SERVIÇOS PRINCIPAIS -->
         <section class="secao">
             <div class="conteiner">
-                <!-- TÍTULO DA SEÇÃO -->
                 <h2 class="titulo-secao">Planos e Serviços</h2>
-                
-                <!-- SUBTÍTULO DESCRITIVO -->
                 <p class="subtitulo-secao">Oferecemos soluções flexíveis para empresas de todos os tamanhos, desde startups até grandes corporações.</p>
                 
-                <!-- GRADE DE SERVIÇOS -->
                 <div class="grade-servicos">
-                    <!-- SERVIÇO BÁSICO -->
                     <div class="card-servico">
                         <div class="icone-servico"><i class="fas fa-seedling"></i></div>
                         <h3>Plano Básico</h3>
                         <p>Ideal para pequenas empresas que estão começando sua jornada de sustentabilidade.</p>
-                        
                         <div class="preco">R$ 499<span class="periodo">/mês</span></div>
-                        
                         <ul class="lista-caracteristicas">
                             <li><i class="fas fa-check"></i> Monitoramento básico de emissões</li>
                             <li><i class="fas fa-check"></i> Relatórios mensais</li>
@@ -76,18 +53,14 @@
                             <li><i class="fas fa-check"></i> Até 5 fontes de emissão</li>
                             <li><i class="fas fa-check"></i> Dashboard simplificado</li>
                         </ul>
-                        
                         <a href="contato.html" class="botao botao-secundario">Solicitar Demonstração</a>
                     </div>
                     
-                    <!-- SERVIÇO PROFISSIONAL (DESTAQUE) -->
                     <div class="card-servico" style="border-top-color: var(--cor-destaque); transform: scale(1.05);">
                         <div class="icone-servico" style="background: linear-gradient(135deg, var(--cor-destaque) 0%, #5DBE49 100%);"><i class="fas fa-tree"></i></div>
                         <h3>Plano Profissional</h3>
                         <p>Para empresas que buscam monitoramento avançado e relatórios detalhados.</p>
-                        
                         <div class="preco">R$ 999<span class="periodo">/mês</span></div>
-                        
                         <ul class="lista-caracteristicas">
                             <li><i class="fas fa-check"></i> Monitoramento avançado</li>
                             <li><i class="fas fa-check"></i> Relatórios personalizados</li>
@@ -97,18 +70,14 @@
                             <li><i class="fas fa-check"></i> Análises comparativas</li>
                             <li><i class="fas fa-check"></i> API de integração</li>
                         </ul>
-                        
                         <a href="contato.html" class="botao botao-primario">Solicitar Demonstração</a>
                     </div>
                     
-                    <!-- SERVIÇO ENTERPRISE -->
                     <div class="card-servico">
                         <div class="icone-servico"><i class="fas fa-globe"></i></div>
                         <h3>Plano Enterprise</h3>
                         <p>Solução completa para grandes corporações com necessidades complexas.</p>
-                        
                         <div class="preco">Sob Consulta</div>
-                        
                         <ul class="lista-caracteristicas">
                             <li><i class="fas fa-check"></i> Monitoramento em tempo real</li>
                             <li><i class="fas fa-check"></i> Relatórios executivos</li>
@@ -119,8 +88,190 @@
                             <li><i class="fas fa-check"></i> Consultoria especializada</li>
                             <li><i class="fas fa-check"></i> Integrações customizadas</li>
                         </ul>
-                        
                         <a href="contato.html" class="botao botao-secundario">Fale com um Especialista</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CARROSSEL DE IMAGENS ===== -->
+        <!-- Carrossel entre "Nossos Planos" e "Recursos da Plataforma" -->
+        <section class="secao secao-carrossel">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Plataforma em Ação</h2>
+                <p class="subtitulo-secao">Veja como nossa tecnologia transforma dados em insights acionáveis</p>
+                
+                <div class="carrossel-container">
+                    <div class="carrossel-wrapper">
+                        <!-- SLIDE 1 -->
+                        <div class="carrossel-slide ativo">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Tempo Real</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Monitoramento Contínuo</h3>
+                                <p>Acompanhe suas emissões 24/7 com dashboards interativos e alertas instantâneos quando limites são atingidos</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 2 -->
+                        <div class="carrossel-slide">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-file-invoice"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Relatórios</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Documentação Profissional</h3>
+                                <p>Gere relatórios executivos em PDF/Excel com gráficos, análises e recomendações personalizadas para sua empresa</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 3 -->
+                        <div class="carrossel-slide">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-brain"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">IA Avançada</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Inteligência Artificial</h3>
+                                <p>Nossa IA analisa padrões históricos e prevê tendências futuras, sugerindo ações proativas para redução de emissões</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 4 -->
+                        <div class="carrossel-slide">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-network-wired"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Integração</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Conectividade Total</h3>
+                                <p>Integre-se com ERP, sensores IoT e sistemas existentes através de nossa API RESTful robusta e documentada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Navegação -->
+                    <button class="carrossel-btn carrossel-prev" onclick="mudarSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carrossel-btn carrossel-next" onclick="mudarSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Indicadores -->
+                    <div class="carrossel-indicadores">
+                        <span class="indicador ativo" onclick="irParaSlide(0)"></span>
+                        <span class="indicador" onclick="irParaSlide(1)"></span>
+                        <span class="indicador" onclick="irParaSlide(2)"></span>
+                        <span class="indicador" onclick="irParaSlide(3)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6 CARDS DE RECURSOS ===== -->
+        <!-- Grid de recursos entre Carrossel e "Como Implementamos" -->
+        <section class="secao secao-recursos-visuais">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Recursos da Plataforma</h2>
+                <p class="subtitulo-secao">Explore as funcionalidades que tornam o Carbon Techo a escolha ideal para sua empresa</p>
+                
+                <div class="grade-recursos-visuais">
+                    <!-- RECURSO 1 -->
+                    <div class="card-recurso-visual">
+                        <div class="recurso-icone-container">
+                            <div class="recurso-icone"><i class="fas fa-desktop"></i></div>
+                            <div class="recurso-badge">Popular</div>
+                        </div>
+                        <h3>Dashboard Interativo</h3>
+                        <p>Interface intuitiva com gráficos dinâmicos e widgets personalizáveis</p>
+                        <div class="recurso-features">
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Drag & Drop</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Tempo Real</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Responsivo</span>
+                        </div>
+                    </div>
+
+                    <!-- RECURSO 2 -->
+                    <div class="card-recurso-visual">
+                        <div class="recurso-icone-container">
+                            <div class="recurso-icone"><i class="fas fa-file-pdf"></i></div>
+                            <div class="recurso-badge">Premium</div>
+                        </div>
+                        <h3>Relatórios Automatizados</h3>
+                        <p>Gere documentos profissionais com um clique, prontos para apresentar</p>
+                        <div class="recurso-features">
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> PDF/Excel</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Agendamento</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Branding</span>
+                        </div>
+                    </div>
+
+                    <!-- RECURSO 3 -->
+                    <div class="card-recurso-visual">
+                        <div class="recurso-icone-container">
+                            <div class="recurso-icone"><i class="fas fa-brain"></i></div>
+                            <div class="recurso-badge">Novo</div>
+                        </div>
+                        <h3>IA Preditiva</h3>
+                        <p>Algoritmos avançados que preveem tendências e sugerem ações</p>
+                        <div class="recurso-features">
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Machine Learning</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Alertas Smart</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Otimização</span>
+                        </div>
+                    </div>
+
+                    <!-- RECURSO 4 -->
+                    <div class="card-recurso-visual">
+                        <div class="recurso-icone-container">
+                            <div class="recurso-icone"><i class="fas fa-plug"></i></div>
+                        </div>
+                        <h3>Integração API</h3>
+                        <p>Conecte-se facilmente com seus sistemas existentes</p>
+                        <div class="recurso-features">
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> REST API</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Webhooks</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> SDKs</span>
+                        </div>
+                    </div>
+
+                    <!-- RECURSO 5 -->
+                    <div class="card-recurso-visual">
+                        <div class="recurso-icone-container">
+                            <div class="recurso-icone"><i class="fas fa-map-marked-alt"></i></div>
+                        </div>
+                        <h3>Multi-Site</h3>
+                        <p>Gerencie múltiplas localizações em uma única plataforma</p>
+                        <div class="recurso-features">
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Ilimitado</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Comparação</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Hierarquia</span>
+                        </div>
+                    </div>
+
+                    <!-- RECURSO 6 -->
+                    <div class="card-recurso-visual">
+                        <div class="recurso-icone-container">
+                            <div class="recurso-icone"><i class="fas fa-bell"></i></div>
+                        </div>
+                        <h3>Alertas Inteligentes</h3>
+                        <p>Notificações personalizadas sobre anomalias e metas</p>
+                        <div class="recurso-features">
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Email/SMS</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Thresholds</span>
+                            <span class="feature-tag"><i class="fas fa-check-circle"></i> Escalação</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,30 +283,25 @@
                 <h2 class="titulo-secao">Como Implementamos</h2>
                 <p class="subtitulo-secao">Nosso processo é simples, eficiente e minimiza disrupturas nas suas operações.</p>
                 
-                <!-- GRADE DO PROCESSO -->
                 <div class="grade-processo">
-                    <!-- ETAPA 1 -->
                     <div class="card-processo">
                         <div class="icone-processo"><i class="fas fa-clipboard-list"></i></div>
                         <h3>Análise Inicial</h3>
                         <p>Realizamos uma avaliação completa das suas operações e necessidades específicas.</p>
                     </div>
                     
-                    <!-- ETAPA 2 -->
                     <div class="card-processo">
                         <div class="icone-processo"><i class="fas fa-cogs"></i></div>
                         <h3>Personalização</h3>
                         <p>Customizamos a solução para se integrar perfeitamente aos seus sistemas existentes.</p>
                     </div>
                     
-                    <!-- ETAPA 3 -->
                     <div class="card-processo">
                         <div class="icone-processo"><i class="fas fa-rocket"></i></div>
                         <h3>Implementação</h3>
                         <p>Instalamos e configuramos a plataforma com treinamento para sua equipe.</p>
                     </div>
                     
-                    <!-- ETAPA 4 -->
                     <div class="card-processo">
                         <div class="icone-processo"><i class="fas fa-chart-line"></i></div>
                         <h3>Monitoramento Contínuo</h3>
@@ -170,9 +316,7 @@
             <div class="conteiner">
                 <h2 class="titulo-secao">Perguntas Frequentes</h2>
                 
-                <!-- ACORDEÃO DE PERGUNTAS -->
                 <div class="acordeao-perguntas">
-                    <!-- PERGUNTA 1 -->
                     <div class="item-acordeao">
                         <div class="pergunta-acordeao">
                             <span>Quanto tempo leva para implementar a solução?</span>
@@ -183,7 +327,6 @@
                         </div>
                     </div>
                     
-                    <!-- PERGUNTA 2 -->
                     <div class="item-acordeao">
                         <div class="pergunta-acordeao">
                             <span>Preciso de equipamentos especiais?</span>
@@ -194,7 +337,6 @@
                         </div>
                     </div>
                     
-                    <!-- PERGUNTA 3 -->
                     <div class="item-acordeao">
                         <div class="pergunta-acordeao">
                             <span>Como é calculada a emissão de carbono?</span>
@@ -205,7 +347,6 @@
                         </div>
                     </div>
                     
-                    <!-- PERGUNTA 4 -->
                     <div class="item-acordeao">
                         <div class="pergunta-acordeao">
                             <span>Os dados da minha empresa estão seguros?</span>
@@ -216,7 +357,6 @@
                         </div>
                     </div>
                     
-                    <!-- PERGUNTA 5 -->
                     <div class="item-acordeao">
                         <div class="pergunta-acordeao">
                             <span>Posso cancelar a qualquer momento?</span>
@@ -235,9 +375,7 @@
             <div class="conteiner">
                 <h2 class="titulo-secao" style="color: var(--branco);">O Que Nossos Clientes Dizem</h2>
                 
-                <!-- GRADE DE DEPOIMENTOS -->
                 <div class="grade-depoimentos">
-                    <!-- DEPOIMENTO 1 -->
                     <div class="card-depoimento">
                         <div class="texto-depoimento">
                             "A Carbon Techo transformou nossa gestão ambiental. Reduzimos 28% nas emissões no primeiro ano e economizamos significativamente em custos operacionais."
@@ -251,7 +389,6 @@
                         </div>
                     </div>
                     
-                    <!-- DEPOIMENTO 2 -->
                     <div class="card-depoimento">
                         <div class="texto-depoimento">
                             "A plataforma é intuitiva e os relatórios nos ajudaram a comunicar nosso progresso sustentável para acionistas e clientes. Suporte excepcional!"
@@ -265,7 +402,6 @@
                         </div>
                     </div>
                     
-                    <!-- DEPOIMENTO 3 -->
                     <div class="card-depoimento">
                         <div class="texto-depoimento">
                             "Implementamos em todas nossas filiais. A escalabilidade da solução e a precisão dos dados foram cruciais para nosso sucesso em sustentabilidade."
@@ -294,15 +430,11 @@
         </section>
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="rodape">
         <div class="conteudo-rodape">
-            <!-- SEÇÃO 1: SOBRE A EMPRESA -->
             <div class="secao-rodape">
                 <h3>Carbon Techo</h3>
                 <p>Líder em soluções de monitoramento de carbono, ajudando empresas a alcançar suas metas de sustentabilidade através de tecnologia inovadora.</p>
-                
-                <!-- LINKS DAS REDES SOCIAIS -->
                 <div class="links-sociais">
                     <a href="#" class="link-social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="link-social"><i class="fab fa-twitter"></i></a>
@@ -311,7 +443,6 @@
                 </div>
             </div>
             
-            <!-- SEÇÃO 2: LINKS RÁPIDOS -->
             <div class="secao-rodape">
                 <h3>Links Rápidos</h3>
                 <ul>
@@ -323,7 +454,6 @@
                 </ul>
             </div>
             
-            <!-- SEÇÃO 3: SERVIÇOS -->
             <div class="secao-rodape">
                 <h3>Nossos Serviços</h3>
                 <ul>
@@ -334,7 +464,6 @@
                 </ul>
             </div>
             
-            <!-- SEÇÃO 4: CONTATO -->
             <div class="secao-rodape">
                 <h3>Contato</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
@@ -344,13 +473,11 @@
             </div>
         </div>
         
-        <!-- RODAPÉ INFERIOR COM COPYRIGHT -->
         <div class="rodape-inferior">
             <p>&copy; 2025 Carbon Techo - ETEC Polivalente Americana - Desenvolvido para um futuro sustentável.</p>
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script src="script.js"></script>
 </body>
 </html>

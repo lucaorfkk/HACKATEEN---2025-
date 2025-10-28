@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- META TAGS BÁSICAS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- TÍTULO E DESCRIÇÃO PARA SEO -->
     <title>Carbon Techo - Rastreamento de Carbono em Tempo Real</title>
     <meta name="description" content="Software que monitora e relata emissões de carbono de operações logísticas e industriais, com sugestões de redução em tempo real.">
-    
-    <!-- LINK PARA CSS EXTERNO -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- FONTE GOOGLE (Inter para design moderno) -->
+    <link rel="stylesheet" href="cssindex.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ===== HEADER FIXO COM NAVEGAÇÃO ===== -->
     <header class="cabecalho">
         <div class="conteiner-cabecalho">
-            <!-- LOGO COM ÍCONE E TEXTO -->
             <a href="index.html" class="logo">
                 <div class="icone-logo"><i class="fas fa-leaf"></i></div>
                 <span>Carbon Techo</span>
             </a>
-            
-            <!-- NAVEGAÇÃO PRINCIPAL -->
             <nav>
-                <!-- BOTÃO PARA MENU MOBILE (oculto em desktop) -->
                 <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
                     <i class="fas fa-bars"></i>
                 </button>
-                
-                <!-- LISTA DE NAVEGAÇÃO -->
                 <ul id="menu-navegacao">
                     <li><a href="index.html" class="ativo"><i class="fas fa-home"></i> Início</a></li>
                     <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
@@ -48,51 +33,119 @@
         </div>
     </header>
 
-    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
     <main class="principal">
-        <!-- SEÇÃO HERO (DESTAQUE PRINCIPAL) -->
+        <!-- SEÇÃO HERO -->
         <section class="hero">
             <div class="conteiner">
-                <!-- TÍTULO PRINCIPAL DA PÁGINA -->
                 <h1>Rastreamento de Carbono em Tempo Real</h1>
-                
-                <!-- SUBTÍTULO EXPLICATIVO -->
                 <p>Monitore, analise e reduza as emissões de carbono da sua empresa com nossa plataforma inteligente. Soluções sustentáveis para um futuro mais verde.</p>
-                
-                <!-- BOTÃO DE CALL-TO-ACTION -->
                 <a href="dashboard.html" class="botao-principal">Ver Dashboard</a>
+            </div>
+        </section>
+
+        <!-- ===== CARROSSEL DE IMAGENS ===== -->
+        <section class="secao secao-carrossel">
+            <div class="conteiner">
+                <h2 class="titulo-secao">Nossas Soluções em Ação</h2>
+                <p class="subtitulo-secao">Veja como ajudamos empresas a transformar dados em ações sustentáveis</p>
+                
+                <div class="carrossel-container">
+                    <div class="carrossel-wrapper">
+                        <!-- SLIDE 1 -->
+                        <div class="carrossel-slide ativo">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-chart-line"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Dashboard Inteligente</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Monitoramento Visual Completo</h3>
+                                <p>Visualize todas as suas métricas de carbono em um dashboard intuitivo e personalizável</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 2 -->
+                        <div class="carrossel-slide">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-brain"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Análise Preditiva</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Inteligência Artificial Avançada</h3>
+                                <p>Algoritmos de IA analisam padrões e preveem tendências para otimizar suas operações</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 3 -->
+                        <div class="carrossel-slide">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-file-contract"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Relatórios Premium</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Documentação Profissional</h3>
+                                <p>Gere relatórios detalhados e personalizados para stakeholders e certificações</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 4 -->
+                        <div class="carrossel-slide">
+                            <div class="carrossel-imagem">
+                                <i class="fas fa-leaf"></i>
+                                <div class="carrossel-overlay">
+                                    <span class="badge-slide">Impacto Real</span>
+                                </div>
+                            </div>
+                            <div class="carrossel-conteudo">
+                                <h3>Resultados Mensuráveis</h3>
+                                <p>Acompanhe a redução real de emissões e o impacto positivo no meio ambiente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões de Navegação -->
+                    <button class="carrossel-btn carrossel-prev" onclick="mudarSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carrossel-btn carrossel-next" onclick="mudarSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Indicadores -->
+                    <div class="carrossel-indicadores">
+                        <span class="indicador ativo" onclick="irParaSlide(0)"></span>
+                        <span class="indicador" onclick="irParaSlide(1)"></span>
+                        <span class="indicador" onclick="irParaSlide(2)"></span>
+                        <span class="indicador" onclick="irParaSlide(3)"></span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- SEÇÃO DE FUNCIONALIDADES -->
         <section class="secao">
             <div class="conteiner">
-                <!-- TÍTULO DA SEÇÃO -->
                 <h2 class="titulo-secao">Como Funciona</h2>
-                
-                <!-- SUBTÍTULO DESCRITIVO -->
                 <p class="subtitulo-secao">Nossa plataforma oferece monitoramento completo das emissões de carbono, fornecendo dados precisos e sugestões inteligentes para redução do impacto ambiental.</p>
                 
-                <!-- GRID DE CARDS COM FUNCIONALIDADES -->
                 <div class="grade-cards">
-                    <!-- CARD 1: MONITORAMENTO -->
                     <div class="card">
-                        <!-- ÍCONE DA FUNCIONALIDADE -->
                         <div class="icone-card"><i class="fas fa-chart-line"></i></div>
-                        <!-- TÍTULO DO CARD -->
                         <h3>Monitoramento em Tempo Real</h3>
-                        <!-- DESCRIÇÃO DA FUNCIONALIDADE -->
                         <p>Acompanhe as emissões de carbono de suas operações logísticas e industriais em tempo real, com dados precisos e atualizados automaticamente.</p>
                     </div>
                     
-                    <!-- CARD 2: RELATÓRIOS -->
                     <div class="card">
                         <div class="icone-card"><i class="fas fa-chart-bar"></i></div>
                         <h3>Relatórios Detalhados</h3>
                         <p>Gere relatórios completos sobre suas emissões, com análises comparativas, tendências e métricas essenciais para tomada de decisão.</p>
                     </div>
                     
-                    <!-- CARD 3: SUGESTÕES -->
                     <div class="card">
                         <div class="icone-card"><i class="fas fa-lightbulb"></i></div>
                         <h3>Sugestões Inteligentes</h3>
@@ -107,23 +160,19 @@
             <div class="conteiner">
                 <h2 class="titulo-secao">Por Que Escolher o Carbon Techo?</h2>
                 
-                <!-- GRID DE BENEFÍCIOS -->
                 <div class="grade-cards">
-                    <!-- BENEFÍCIO 1 -->
                     <div class="card">
                         <div class="icone-card"><i class="fas fa-bolt"></i></div>
                         <h3>Implementação Rápida</h3>
                         <p>Configure e comece a usar em poucos minutos. Nossa solução se integra facilmente aos seus sistemas existentes.</p>
                     </div>
                     
-                    <!-- BENEFÍCIO 2 -->
                     <div class="card">
                         <div class="icone-card"><i class="fas fa-lock"></i></div>
                         <h3>Dados Seguros</h3>
                         <p>Seus dados estão protegidos com criptografia de ponta e infraestrutura segura, garantindo total confidencialidade.</p>
                     </div>
                     
-                    <!-- BENEFÍCIO 3 -->
                     <div class="card">
                         <div class="icone-card"><i class="fas fa-money-bill-wave"></i></div>
                         <h3>Economia Comprovada</h3>
@@ -138,27 +187,22 @@
             <div class="conteiner">
                 <h2 class="titulo-secao">Nosso Impacto</h2>
                 
-                <!-- GRID DE ESTATÍSTICAS -->
                 <div class="estatisticas-dashboard">
-                    <!-- ESTATÍSTICA 1 -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica">150+</span>
                         <div class="rotulo-estatistica">Empresas Atendidas</div>
                     </div>
                     
-                    <!-- ESTATÍSTICA 2 -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica">2.5M</span>
                         <div class="rotulo-estatistica">Toneladas CO₂ Monitoradas</div>
                     </div>
                     
-                    <!-- ESTATÍSTICA 3 -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica">35%</span>
                         <div class="rotulo-estatistica">Redução Média Alcançada</div>
                     </div>
                     
-                    <!-- ESTATÍSTICA 4 -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica">24/7</span>
                         <div class="rotulo-estatistica">Monitoramento Contínuo</div>
@@ -168,15 +212,11 @@
         </section>
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="rodape">
         <div class="conteudo-rodape">
-            <!-- SEÇÃO 1: SOBRE A EMPRESA -->
             <div class="secao-rodape">
                 <h3>Carbon Techo</h3>
                 <p>Líder em soluções de monitoramento de carbono, ajudando empresas a alcançar suas metas de sustentabilidade através de tecnologia inovadora.</p>
-                
-                <!-- LINKS DAS REDES SOCIAIS -->
                 <div class="links-sociais">
                     <a href="#" class="link-social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="link-social"><i class="fab fa-twitter"></i></a>
@@ -185,7 +225,6 @@
                 </div>
             </div>
             
-            <!-- SEÇÃO 2: LINKS RÁPIDOS -->
             <div class="secao-rodape">
                 <h3>Links Rápidos</h3>
                 <ul>
@@ -197,7 +236,6 @@
                 </ul>
             </div>
             
-            <!-- SEÇÃO 3: SERVIÇOS -->
             <div class="secao-rodape">
                 <h3>Nossos Serviços</h3>
                 <ul>
@@ -208,7 +246,6 @@
                 </ul>
             </div>
             
-            <!-- SEÇÃO 4: CONTATO -->
             <div class="secao-rodape">
                 <h3>Contato</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Nossa Sra. de Fátima, 567 - Vila Israel, Americana - SP, 13478-540</p>
@@ -218,13 +255,11 @@
             </div>
         </div>
         
-        <!-- RODAPÉ INFERIOR COM COPYRIGHT -->
         <div class="rodape-inferior">
             <p>&copy; 2025 Carbon Techo - ETEC Polivalente Americana - Desenvolvido para um futuro sustentável.</p>
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script src="script.js"></script>
 </body>
 </html>

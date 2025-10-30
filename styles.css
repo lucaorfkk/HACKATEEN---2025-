@@ -414,10 +414,6 @@ textarea.controle-formulario {
   transition: var(--transicao);
 }
 
-.secao-rodape a:hover {
-  color: var(--cor-destaque);
-}
-
 .links-sociais {
   display: flex;
   gap: 1rem;

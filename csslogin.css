@@ -439,3 +439,81 @@
     padding: 1rem;
   }
 }
+@media (max-width: 480px) {
+  .conteiner-login {
+    min-height: 100vh;
+  }
+  
+  .secao-formulario {
+    padding: 1rem;
+  }
+  
+  .card-login {
+    padding: 2rem 1.25rem;
+  }
+  
+  .logo-login .icone-logo {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .logo-login h1 {
+    font-size: 1.5rem;
+  }
+  
+  .titulo-formulario {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .grupo-formulario-com-icone {
+    margin-bottom: 1.25rem;
+  }
+  
+  .controle-formulario {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .controle-formulario-com-icone {
+    padding-left: 2.75rem;
+  }
+  
+  .icone-campo {
+    left: 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .botao-toggle-senha {
+    right: 0.875rem;
+  }
+  
+  .botao-login {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+  
+  .lembrar-me {
+    font-size: 0.9rem;
+  }
+  
+  .opcoes-login {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .link-esqueci-senha {
+    font-size: 0.85rem;
+  }
+  
+  .mensagem-registro {
+    font-size: 0.9rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 1rem 0.5rem;
+  }
+}

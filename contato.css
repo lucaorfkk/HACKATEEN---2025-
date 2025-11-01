@@ -143,3 +143,49 @@
     margin-bottom: 0.5rem;
   }
 }
+@media (max-width: 480px) {
+  .layout-contato {
+    gap: 1.5rem;
+  }
+  
+  .informacoes-contato,
+  .formulario-contato {
+    padding: 1.5rem 1rem;
+  }
+  
+  .informacoes-contato h2,
+  .formulario-contato h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .item-contato {
+    margin-bottom: 1.25rem;
+  }
+  
+  .icone-contato {
+    width: 35px;
+    height: 35px;
+    font-size: 0.95rem;
+  }
+  
+  .texto-contato h4 {
+    font-size: 0.95rem;
+  }
+  
+  .texto-contato p,
+  .texto-contato a {
+    font-size: 0.9rem;
+  }
+  
+  .link-rede-social {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+  
+  .horario-atendimento h3,
+  .redes-sociais-contato h3 {
+    font-size: 1rem;
+  }
+}

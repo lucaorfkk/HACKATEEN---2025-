@@ -1224,12 +1224,344 @@ textarea.controle-formulario {
 }
 
 @media (max-width: 768px) {
+  .conteiner-cabecalho {
+    padding: 0 1rem;
+  }
+  
+  .botao-menu-mobile {
+    display: block;
+    padding: 0.5rem;
+    z-index: 1001;
+  }
+  
+  nav {
+    position: relative;
+  }
+  
+  nav ul {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--cor-primaria);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    box-shadow: var(--sombra);
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  
+  nav ul.mostrar {
+    display: flex;
+  }
+  
+  nav a {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  nav a i {
+    width: 20px;
+    text-align: center;
+  }
+  
+  nav a:last-child {
+    border-bottom: none;
+  }
+  
+  .conteiner {
+    padding: 0 1rem;
+  }
+  
+  .hero {
+    padding: 3rem 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .titulo-secao {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  
+  .subtitulo-secao {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .grade-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .conteudo-rodape {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .area-usuario {
+    margin-left: auto;
+  }
+  
+  .menu-dropdown-usuario {
+    min-width: 180px;
+    right: 0;
+  }
+  
+  .links-sociais {
+    justify-content: center;
+  }
+  
+  .carrossel-slide {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .carrossel-imagem {
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .carrossel-imagem i {
+    font-size: 5rem;
+  }
+
+  .carrossel-conteudo {
+    padding: 1rem 0;
+  }
+
+  .carrossel-conteudo h3 {
+    font-size: 1.5rem;
+  }
+
+  .carrossel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .carrossel-prev {
+    left: 0.5rem;
+  }
+
+  .carrossel-next {
+    right: 0.5rem;
+  }
+
+  .carrossel-slide-servicos {
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .carrossel-imagem-servicos {
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .carrossel-imagem-servicos i {
+    font-size: 6rem;
+  }
+
+  .carrossel-conteudo-servicos {
+    padding: 1rem 0;
+  }
+
+  .carrossel-conteudo-servicos h3 {
+    font-size: 1.8rem;
+  }
+
+  .carrossel-conteudo-servicos p {
+    font-size: 1rem;
+  }
+
+  .lista-beneficios li {
+    font-size: 1rem;
+  }
+
+  .carrossel-btn-servicos {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .carrossel-prev-servicos {
+    left: 0.8rem;
+  }
+
+  .carrossel-next-servicos {
+    right: 0.8rem;
+  }
+
+  .carrossel-indicadores-servicos {
+    gap: 0.7rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .indicador-servicos {
+    width: 10px;
+    height: 10px;
+  }
+
+  .indicador-servicos.ativo {
+    width: 25px;
+  }
+  
   .estatisticas-dashboard {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
+  .cabecalho {
+    padding: 0.75rem 0;
+  }
+  
+  .conteiner-cabecalho {
+    padding: 0 0.75rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .icone-logo {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .botao-menu-mobile {
+    font-size: 1.25rem;
+  }
+  
+  nav ul {
+    top: 64px;
+  }
+  
+  nav a {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .hero {
+    padding: 2rem 0;
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .botao-principal {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+  
+  .secao {
+    padding: 3rem 0;
+  }
+  
+  .titulo-secao {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .subtitulo-secao {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .icone-card {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+  }
+  
+  .grade-equipe {
+    grid-template-columns: 1fr;
+  }
+  
+  .conteudo-rodape {
+    padding: 0 0.75rem;
+  }
+  
+  .secao-rodape h3 {
+    font-size: 1.1rem;
+  }
+  
+  .secao-rodape p,
+  .secao-rodape li {
+    font-size: 0.9rem;
+  }
+  
+  .carrossel-imagem {
+    min-height: 250px;
+  }
+
+  .badge-slide {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .carrossel-imagem-servicos {
+    min-height: 250px;
+  }
+
+  .carrossel-imagem-servicos i {
+    font-size: 5rem;
+  }
+
+  .badge-slide-servicos {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .carrossel-conteudo-servicos h3 {
+    font-size: 1.5rem;
+  }
+
+  .lista-beneficios li {
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+  }
+  
   .estatisticas-dashboard {
     grid-template-columns: 1fr;
   }

@@ -233,7 +233,70 @@ select.controle-formulario {
     width: 100%;
   }
 }
-
+@media (max-width: 480px) {
+  .conteiner-dashboard {
+    padding: 1.5rem 0;
+  }
+  
+  .controles-dashboard {
+    gap: 0.75rem;
+  }
+  
+  .rotulo-controle {
+    font-size: 0.85rem;
+  }
+  
+  select.controle-formulario {
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+  
+  .card-dashboard {
+    padding: 1.25rem;
+  }
+  
+  .titulo-card {
+    font-size: 1rem;
+  }
+  
+  .indicador-tendencia {
+    font-size: 0.8rem;
+  }
+  
+  .numero-estatistica {
+    font-size: 2rem;
+  }
+  
+  .rotulo-estatistica {
+    font-size: 0.8rem;
+  }
+  
+  .area-grafico {
+    height: 250px;
+  }
+  
+  .item-atividade {
+    padding: 0.875rem;
+  }
+  
+  .icone-atividade {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .info-atividade h4 {
+    font-size: 0.85rem;
+  }
+  
+  .info-atividade p {
+    font-size: 0.75rem;
+  }
+  
+  .tempo-atividade {
+    font-size: 0.75rem;
+  }
+}
 @media (max-width: 480px) {
   .estatisticas-dashboard {
     grid-template-columns: 1fr;

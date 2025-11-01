@@ -48,6 +48,15 @@
   font-weight: 500;
 }
 
+.indicador-tendencia-grafico {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texto-escuro);
+}
+
 .tendencia-alta {
   color: var(--perigo);
 }
@@ -186,6 +195,19 @@ select.controle-formulario {
   padding: 2rem;
   box-shadow: var(--sombra);
   margin-bottom: 2rem;
+}
+
+.porcentagem-meta {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.legenda-grupo {
+  margin-left: 0;
+}
+
+.legenda-grupo rect {
+  margin-right: 6px;
 }
 
 @media (max-width: 768px) {

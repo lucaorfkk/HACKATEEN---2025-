@@ -130,7 +130,7 @@
                     <div class="card-dashboard">
                         <div class="cabecalho-card">
                             <h3 class="titulo-card">Emissões por Período</h3>
-                            <div class="indicador-tendencia tendencia-baixa">
+                            <div class="indicador-tendencia-grafico tendencia-baixa">
                                 Redução de 23% este trimestre
                             </div>
                         </div>
@@ -288,14 +288,20 @@
                                         stroke-dasharray="94 281" stroke-dashoffset="-281" transform="rotate(-90 150 100)"/>
                                 
                                 <!-- LEGENDA -->
-                                <rect x="10" y="170" width="12" height="12" fill="var(--cor-secundaria)"/>
-                                <text x="28" y="181" font-size="12" fill="var(--texto-escuro)">Logística (40%)</text>
+                                <g class="legenda-grupo">
+                                    <rect x="10" y="170" width="12" height="12" fill="var(--cor-secundaria)"/>
+                                    <text x="28" y="181" font-size="12" fill="var(--texto-escuro)">Logística (40%)</text>
+                                </g>
                                 
-                                <rect x="110" y="170" width="12" height="12" fill="var(--cor-destaque)"/>
-                                <text x="128" y="181" font-size="12" fill="var(--texto-escuro)">Produção (35%)</text>
+                                <g class="legenda-grupo">
+                                    <rect x="120" y="170" width="12" height="12" fill="var(--cor-destaque)"/>
+                                    <text x="138" y="181" font-size="12" fill="var(--texto-escuro)">Produção (35%)</text>
+                                </g>
                                 
-                                <rect x="220" y="170" width="12" height="12" fill="var(--cor-primaria)"/>
-                                <text x="238" y="181" font-size="12" fill="var(--texto-escuro)">Energia (25%)</text>
+                                <g class="legenda-grupo">
+                                    <rect x="230" y="170" width="12" height="12" fill="var(--cor-primaria)"/>
+                                    <text x="248" y="181" font-size="12" fill="var(--texto-escuro)">Energia (25%)</text>
+                                </g>
                             </svg>
                         </div>
                     </div>
@@ -314,7 +320,7 @@
                             <div style="margin-bottom: 1.5rem;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                                     <span style="font-weight: 500; color: var(--texto-escuro);">Meta Mensal</span>
-                                    <span style="color: var(--sucesso); font-weight: 600;" id="progresso-mensal">78%</span>
+                                    <span class="porcentagem-meta" style="color: var(--sucesso); font-weight: 700; font-size: 1.1rem;" id="progresso-mensal">78%</span>
                                 </div>
                                 <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
                                     <div style="background: linear-gradient(90deg, var(--sucesso) 0%, var(--cor-destaque) 100%); height: 100%; width: 78%; transition: width 0.5s ease;" id="barra-mensal"></div>
@@ -325,7 +331,7 @@
                             <div style="margin-bottom: 1.5rem;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                                     <span style="font-weight: 500; color: var(--texto-escuro);">Meta Trimestral</span>
-                                    <span style="color: var(--cor-secundaria); font-weight: 600;" id="progresso-trimestral">65%</span>
+                                    <span class="porcentagem-meta" style="color: var(--cor-secundaria); font-weight: 700; font-size: 1.1rem;" id="progresso-trimestral">65%</span>
                                 </div>
                                 <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
                                     <div style="background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-destaque) 100%); height: 100%; width: 65%; transition: width 0.5s ease;" id="barra-trimestral"></div>
@@ -336,7 +342,7 @@
                             <div style="margin-bottom: 1.5rem;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                                     <span style="font-weight: 500; color: var(--texto-escuro);">Meta Anual</span>
-                                    <span style="color: var(--aviso); font-weight: 600;" id="progresso-anual">42%</span>
+                                    <span class="porcentagem-meta" style="color: var(--aviso); font-weight: 700; font-size: 1.1rem;" id="progresso-anual">42%</span>
                                 </div>
                                 <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
                                     <div style="background: linear-gradient(90deg, var(--aviso) 0%, var(--cor-destaque) 100%); height: 100%; width: 42%; transition: width 0.5s ease;" id="barra-anual"></div>

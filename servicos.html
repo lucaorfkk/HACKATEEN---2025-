@@ -18,7 +18,7 @@
                 <span>Carbon Techo</span>
             </a>
             <nav>
-                <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
+                <button class="botao-menu-mobile" aria-label="Menu" title="menu"  onclick="alternarMenuMobile()">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="menu-navegacao">
@@ -94,93 +94,85 @@
             </div>
         </section>
 
-        <!-- ===== CARROSSEL DE IMAGENS ===== -->
-        <!-- Carrossel entre "Nossos Planos" e "Recursos da Plataforma" -->
+        <!-- ===== NOVO CARROSSEL MODERNO ===== -->
         <section class="secao secao-carrossel">
             <div class="conteiner">
                 <h2 class="titulo-secao">Plataforma em Ação</h2>
                 <p class="subtitulo-secao">Veja como nossa tecnologia transforma dados em insights acionáveis</p>
                 
-                <div class="carrossel-container">
-                    <div class="carrossel-wrapper">
+                <div class="carousel-novo" id="carousel-servicos">
+                    <div class="carousel-track">
                         <!-- SLIDE 1 -->
-                        <div class="carrossel-slide ativo">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Tempo Real</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <img src="imagens/imagem 5.png"></i>
+                                <div class="carousel-badge">Tempo Real</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Monitoramento Contínuo</h3>
-                                <p>Acompanhe suas emissões 24/7 com dashboards interativos e alertas instantâneos quando limites são atingidos</p>
+                                <p>Acompanhe suas emissões 24/7 com dashboards interativos e alertas instantâneos quando limites são atingidos. Visualize dados em tempo real e tome decisões rápidas baseadas em informações precisas.</p>
                             </div>
                         </div>
 
                         <!-- SLIDE 2 -->
-                        <div class="carrossel-slide">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-file-invoice"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Relatórios</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <img src="imagens/imagem 6.png"></i>
+                                <div class="carousel-badge">Relatórios</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Documentação Profissional</h3>
-                                <p>Gere relatórios executivos em PDF/Excel com gráficos, análises e recomendações personalizadas para sua empresa</p>
+                                <p>Gere relatórios executivos em PDF/Excel com gráficos, análises e recomendações personalizadas para sua empresa. Pronto para apresentar a stakeholders e órgãos reguladores.</p>
                             </div>
                         </div>
 
                         <!-- SLIDE 3 -->
-                        <div class="carrossel-slide">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-brain"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">IA Avançada</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <i class="fas fa-brain carousel-icon"></i>
+                                <div class="carousel-badge">Consultorias</div>
                             </div>
-                            <div class="carrossel-conteudo">
-                                <h3>Inteligência Artificial</h3>
-                                <p>Nossa IA analisa padrões históricos e prevê tendências futuras, sugerindo ações proativas para redução de emissões</p>
+                            <div class="carousel-content">
+                                <h3>Consultoria especializada</h3>
+                                <p>Oferecemos consultorias especializadas para analisar dados ambientais, identificar padrões e prever tendências. Nosso objetivo é auxiliar empresas na adoção de ações estratégicas e proativas.</p>
                             </div>
                         </div>
 
                         <!-- SLIDE 4 -->
-                        <div class="carrossel-slide">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-network-wired"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Integração</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <i class="fas fa-network-wired carousel-icon"></i>
+                                <div class="carousel-badge">Integração</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Conectividade Total</h3>
-                                <p>Integre-se com ERP, sensores IoT e sistemas existentes através de nossa API RESTful robusta e documentada</p>
+                                <p>Integre-se com ERP, sensores IoT e sistemas existentes através de nossa API RESTful robusta e documentada. Sincronização automática de dados em tempo real.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Botões de Navegação -->
-                    <button class="carrossel-btn carrossel-prev" onclick="mudarSlide(-1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carrossel-btn carrossel-next" onclick="mudarSlide(1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Indicadores -->
-                    <div class="carrossel-indicadores">
-                        <span class="indicador ativo" onclick="irParaSlide(0)"></span>
-                        <span class="indicador" onclick="irParaSlide(1)"></span>
-                        <span class="indicador" onclick="irParaSlide(2)"></span>
-                        <span class="indicador" onclick="irParaSlide(3)"></span>
+                    <!-- Controles do Carrossel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-prev" aria-label="Slide anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div class="carousel-dots">
+                            <span class="carousel-dot active"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                        </div>
+                        
+                        <button class="carousel-btn carousel-next" aria-label="Próximo slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 6 CARDS DE RECURSOS ===== -->
-        <!-- Grid de recursos entre Carrossel e "Como Implementamos" -->
+        <!-- SEÇÃO DE RECURSOS VISUAIS -->
         <section class="secao secao-recursos-visuais">
             <div class="conteiner">
                 <h2 class="titulo-secao">Recursos da Plataforma</h2>

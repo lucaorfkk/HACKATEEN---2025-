@@ -6,7 +6,6 @@
     <title>Carbon Techo - Rastreamento de Carbono em Tempo Real</title>
     <meta name="description" content="Software que monitora e relata emissões de carbono de operações logísticas e industriais, com sugestões de redução em tempo real.">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="cssindex.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -18,7 +17,7 @@
                 <span>Carbon Techo</span>
             </a>
             <nav>
-                <button class="botao-menu-mobile" onclick="alternarMenuMobile()">
+                <button class="botao-menu-mobile" aria-label="Menu" title="Menu" onclick="alternarMenuMobile()">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="menu-navegacao">
@@ -42,85 +41,79 @@
             </div>
         </section>
 
-        <!-- ===== CARROSSEL DE IMAGENS ===== -->
+        <!-- ===== NOVO CARROSSEL MODERNO ===== -->
         <section class="secao secao-carrossel">
             <div class="conteiner">
                 <h2 class="titulo-secao">Nossas Soluções em Ação</h2>
                 <p class="subtitulo-secao">Veja como ajudamos empresas a transformar dados em ações sustentáveis</p>
                 
-                <div class="carrossel-container">
-                    <div class="carrossel-wrapper">
+                <div class="carousel-novo" id="carousel-principal">
+                    <div class="carousel-track">
                         <!-- SLIDE 1 -->
-                        <div class="carrossel-slide ativo">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-chart-line"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Dashboard Inteligente</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <img src="imagens/imagem 1.png"></i>
+                                <div class="carousel-badge">Dashboard Inteligente</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Monitoramento Visual Completo</h3>
-                                <p>Visualize todas as suas métricas de carbono em um dashboard intuitivo e personalizável</p>
+                                <p>Visualize todas as suas métricas de carbono em um dashboard intuitivo e personalizável. Acompanhe tendências, identifique pontos críticos e tome decisões baseadas em dados precisos em tempo real.</p>
                             </div>
                         </div>
 
                         <!-- SLIDE 2 -->
-                        <div class="carrossel-slide">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-brain"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Análise Preditiva</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <img src="imagens/imagem 2.png"></i>
+                                <div class="carousel-badge">Análise Preditiva</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Inteligência Artificial Avançada</h3>
-                                <p>Algoritmos de IA analisam padrões e preveem tendências para otimizar suas operações</p>
+                                <p>Algoritmos de IA analisam padrões históricos e preveem tendências futuras para otimizar suas operações. Receba sugestões inteligentes de redução de emissões baseadas em machine learning.</p>
                             </div>
                         </div>
 
                         <!-- SLIDE 3 -->
-                        <div class="carrossel-slide">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-file-contract"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Relatórios Premium</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <img src="imagens/imagem 3.png"></i>
+                                <div class="carousel-badge">Relatórios Premium</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Documentação Profissional</h3>
-                                <p>Gere relatórios detalhados e personalizados para stakeholders e certificações</p>
+                                <p>Gere relatórios detalhados e personalizados para stakeholders e certificações ambientais. Exporte dados em múltiplos formatos com gráficos executivos e análises comparativas.</p>
                             </div>
                         </div>
 
                         <!-- SLIDE 4 -->
-                        <div class="carrossel-slide">
-                            <div class="carrossel-imagem">
-                                <i class="fas fa-leaf"></i>
-                                <div class="carrossel-overlay">
-                                    <span class="badge-slide">Impacto Real</span>
-                                </div>
+                        <div class="carousel-slide-novo">
+                            <div class="carousel-image-container">
+                                <img src="imagens/imagem 4.png"></i>
+                                <div class="carousel-badge">Impacto Real</div>
                             </div>
-                            <div class="carrossel-conteudo">
+                            <div class="carousel-content">
                                 <h3>Resultados Mensuráveis</h3>
-                                <p>Acompanhe a redução real de emissões e o impacto positivo no meio ambiente</p>
+                                <p>Acompanhe a redução real de emissões e o impacto positivo no meio ambiente. Métricas claras e transparentes mostram o progresso da sua empresa rumo à neutralidade de carbono.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Botões de Navegação -->
-                    <button class="carrossel-btn carrossel-prev" onclick="mudarSlide(-1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carrossel-btn carrossel-next" onclick="mudarSlide(1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Indicadores -->
-                    <div class="carrossel-indicadores">
-                        <span class="indicador ativo" onclick="irParaSlide(0)"></span>
-                        <span class="indicador" onclick="irParaSlide(1)"></span>
-                        <span class="indicador" onclick="irParaSlide(2)"></span>
-                        <span class="indicador" onclick="irParaSlide(3)"></span>
+                    <!-- Controles do Carrossel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-prev" aria-label="Slide anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div class="carousel-dots">
+                            <span class="carousel-dot active"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                        </div>
+                        
+                        <button class="carousel-btn carousel-next" aria-label="Próximo slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>

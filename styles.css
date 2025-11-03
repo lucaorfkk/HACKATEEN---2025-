@@ -812,7 +812,6 @@ textarea.controle-formulario {
   font-weight: 500;
 }
 
-/* ESTILOS DA PÁGINA DE SERVIÇOS */
 .grade-servicos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -899,7 +898,6 @@ textarea.controle-formulario {
   font-size: 1.1rem;
 }
 
-/* RECURSOS VISUAIS */
 .secao-recursos-visuais {
   background: var(--cinza-claro);
 }
@@ -1040,7 +1038,6 @@ textarea.controle-formulario {
   line-height: 1.6;
 }
 
-/* ACORDEÃO FAQ */
 .acordeao-perguntas {
   max-width: 900px;
   margin: 0 auto;

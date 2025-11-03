@@ -33,7 +33,6 @@
     </header>
 
     <main class="principal">
-        <!-- ===== SEÇÃO HERO DO DASHBOARD ===== -->
         <section class="hero" style="padding: 2rem 0;">
             <div class="conteiner">
                 <h1>Dashboard de Emissões</h1>
@@ -41,11 +40,9 @@
             </div>
         </section>
 
-        <!-- ===== ÁREA PRINCIPAL DO DASHBOARD ===== -->
         <section class="conteiner-dashboard">
             <div class="conteiner">
                 
-                <!-- CONTROLES E FILTROS -->
 <div class="controles-dashboard">
     <div class="grupo-controle">
         <label class="rotulo-controle" for="selecao-periodo">Período:</label>
@@ -80,13 +77,11 @@
     </div>
 </div>
 
-                <!-- Loading Spinner -->
                 <div class="carregando" id="carregando"></div>
 
                 <!-- ESTATÍSTICAS PRINCIPAIS -->
                 <div class="grade-dashboard linha-estatisticas">
                     
-                    <!-- ESTATÍSTICA 1: EMISSÕES TOTAIS -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica" id="emissoes-totais">1,247.5</span>
                         <div class="rotulo-estatistica">Toneladas CO₂ (Mês)</div>
@@ -95,7 +90,6 @@
                         </div>
                     </div>
                     
-                    <!-- ESTATÍSTICA 2: META DO MÊS -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica" id="meta-mensal">78%</span>
                         <div class="rotulo-estatistica">Meta do Mês</div>
@@ -104,7 +98,6 @@
                         </div>
                     </div>
                     
-                    <!-- ESTATÍSTICA 3: ECONOMIA ALCANÇADA -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica" id="economia">R$ 89,340</span>
                         <div class="rotulo-estatistica">Economia Alcançada</div>
@@ -113,7 +106,6 @@
                         </div>
                     </div>
                     
-                    <!-- ESTATÍSTICA 4: PONTOS MONITORADOS -->
                     <div class="card-estatistica">
                         <span class="numero-estatistica" id="pontos-monitoramento">47</span>
                         <div class="rotulo-estatistica">Pontos Monitorados</div>
@@ -123,7 +115,6 @@
                     </div>
                 </div>
 
-                <!-- ÁREA PRINCIPAL: GRÁFICOS E ATIVIDADES -->
                 <div class="grade-dashboard linha-principal">
                     
                     <!-- GRÁFICO PRINCIPAL DE EMISSÕES -->
@@ -138,7 +129,6 @@
                         <!-- ÁREA DO GRÁFICO -->
                         <div class="area-grafico">
                             <div class="placeholder-grafico">
-                                <!-- SIMULAÇÃO DE GRÁFICO DE LINHA -->
                                 <svg width="100%" height="100%" viewBox="0 0 400 200" style="background: transparent;">
                                     <!-- GRID DO GRÁFICO -->
                                     <defs>
@@ -180,7 +170,6 @@
                         </div>
                     </div>
                     
-                    <!-- PAINEL DE ATIVIDADES RECENTES -->
                     <div class="card-dashboard">
                         <div class="cabecalho-card">
                             <h3 class="titulo-card">Atividades Recentes</h3>
@@ -189,7 +178,6 @@
                         
                         <div class="lista-atividades">
                             
-                            <!-- ATIVIDADE 1 -->
                             <div class="item-atividade">
                                 <div class="icone-atividade" style="background: rgba(39, 174, 96, 0.1); color: var(--sucesso);">
                                     <i class="fas fa-check"></i>
@@ -201,7 +189,6 @@
                                 <div class="tempo-atividade">2h</div>
                             </div>
                             
-                            <!-- ATIVIDADE 2 -->
                             <div class="item-atividade">
                                 <div class="icone-atividade" style="background: rgba(243, 156, 18, 0.1); color: var(--aviso);">
                                     <i class="fas fa-exclamation-triangle"></i>
@@ -213,7 +200,6 @@
                                 <div class="tempo-atividade">4h</div>
                             </div>
                             
-                            <!-- ATIVIDADE 3 -->
                             <div class="item-atividade">
                                 <div class="icone-atividade" style="background: rgba(74, 155, 62, 0.1); color: var(--cor-secundaria);">
                                     <i class="fas fa-chart-bar"></i>
@@ -225,7 +211,6 @@
                                 <div class="tempo-atividade">1d</div>
                             </div>
                             
-                            <!-- ATIVIDADE 4 -->
                             <div class="item-atividade">
                                 <div class="icone-atividade" style="background: rgba(231, 76, 60, 0.1); color: var(--perigo);">
                                     <i class="fas fa-circle"></i>
@@ -237,7 +222,6 @@
                                 <div class="tempo-atividade">2d</div>
                             </div>
                             
-                            <!-- ATIVIDADE 5 -->
                             <div class="item-atividade">
                                 <div class="icone-atividade" style="background: rgba(74, 155, 62, 0.1); color: var(--cor-secundaria);">
                                     <i class="fas fa-sync"></i>
@@ -252,7 +236,6 @@
                     </div>
                 </div>
 
-                <!-- SEGUNDA LINHA: DISTRIBUIÇÃO E COMPARATIVO -->
                 <div class="grade-dashboard linha-principal">
                     
                     <!-- DISTRIBUIÇÃO POR SETOR -->
@@ -266,7 +249,6 @@
                             </select>
                         </div>
                         
-                        <!-- GRÁFICO DE PIZZA SIMULADO -->
                         <div class="area-grafico" style="height: 250px;">
                             <svg width="100%" height="100%" viewBox="0 0 300 200">
                                 <!-- CÍRCULO BASE -->
@@ -306,7 +288,6 @@
                         </div>
                     </div>
                     
-                    <!-- COMPARATIVO E METAS -->
                     <div class="card-dashboard">
                         <div class="cabecalho-card">
                             <h3 class="titulo-card">Progresso das Metas</h3>
@@ -369,19 +350,16 @@
                         
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
                             
-                            <!-- ALERTA 1 -->
                             <div class="alerta alerta-aviso">
                                 <strong><i class="fas fa-exclamation-triangle"></i> Atenção:</strong> As emissões da Fábrica A aumentaram 12% esta semana. 
                                 Recomendamos verificar os equipamentos de filtragem.
                             </div>
                             
-                            <!-- ALERTA 2 -->
                             <div class="alerta alerta-sucesso">
                                 <strong><i class="fas fa-check-circle"></i> Parabéns:</strong> O setor de logística superou a meta mensal! 
                                 Continue otimizando as rotas de entrega.
                             </div>
                             
-                            <!-- ALERTA 3 -->
                             <div class="alerta alerta-perigo">
                                 <strong><i class="fas fa-exclamation-circle"></i> Crítico:</strong> Sensor 07 está offline há 2 dias. 
                                 Agende manutenção urgente para manter o monitoramento.

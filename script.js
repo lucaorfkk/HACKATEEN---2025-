@@ -441,7 +441,6 @@ function atualizarHeaderComUsuario() {
             </a>
             <div class="menu-dropdown-usuario" id="menu-usuario" style="display: none;">
                 <a href="dashboard.html"><i class="fas fa-chart-bar"></i> Meu Dashboard</a>
-                <a href="#" onclick="event.preventDefault(); verPerfil();"><i class="fas fa-user"></i> Meu Perfil</a>
                 <a href="#" onclick="event.preventDefault(); fazerLogout();"><i class="fas fa-sign-out-alt"></i> Sair</a>
             </div>
         `;

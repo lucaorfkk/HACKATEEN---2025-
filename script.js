@@ -1,6 +1,3 @@
-/* ===== ARQUIVO JAVASCRIPT PRINCIPAL - script.js =====
-   Funções usadas em todas as páginas */
-
 // ===== FUNÇÃO PARA TOGGLE DO MENU MOBILE =====
 function alternarMenuMobile() {
     const menuNavegacao = document.getElementById('menu-navegacao');
@@ -20,10 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Inicializar autenticação
     inicializarAutenticacao();
     
-    // Atualizar header com informações do usuário
     atualizarHeaderComUsuario();
 });
 
@@ -42,10 +37,8 @@ window.addEventListener('scroll', function() {
 
 /* ===== SISTEMA DE AUTENTICAÇÃO ===== */
 
-// Simulação de banco de dados de usuários
 let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-// ===== FUNÇÕES DE VALIDAÇÃO =====
 
 // Validar email
 function validarEmail(email) {
@@ -101,7 +94,6 @@ function atualizarIndicadorForcaSenha(senha) {
     texto.textContent = textos[forca];
 }
 
-// ===== FUNÇÕES DE MENSAGEM =====
 
 // Mostrar mensagem de feedback
 function mostrarMensagem(mensagem, tipo = 'info') {
@@ -118,7 +110,6 @@ function mostrarMensagem(mensagem, tipo = 'info') {
     }, 5000);
 }
 
-// ===== FUNÇÕES DE CADASTRO =====
 
 // Verificar se usuário já existe
 function usuarioExiste(email) {

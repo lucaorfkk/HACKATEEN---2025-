@@ -1,5 +1,3 @@
-/* ===== INDEX.JS - Carrossel Moderno e Funcional ===== */
-
 class CarouselNovo {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -140,12 +138,9 @@ class CarouselNovo {
   }
 }
 
-// Inicializar carrossel quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
-  // Inicializar carrossel da página index
   const carousel = new CarouselNovo('carousel-principal');
   
-  // Se houver múltiplos carrosséis, inicialize cada um
   const carousels = document.querySelectorAll('[id^="carousel-"]');
   carousels.forEach(carouselElement => {
     if (carouselElement.id !== 'carousel-principal') {

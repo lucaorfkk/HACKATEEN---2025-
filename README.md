@@ -9,7 +9,8 @@ Projeto desenvolvido para o hackateen pela **ETEC Polivalente Americana**.
 * Salluan Morato Pereira
 * Lucas de Campos Leite
 * Arthur Cavallini dos Santos
-* Nikolas Ferreira Giardini
+* Nikolas Ferreira Giardini 
+
 
 ---
 

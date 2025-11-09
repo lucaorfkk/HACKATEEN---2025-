@@ -434,7 +434,7 @@ textarea.controle-formulario {
 }
 
 .link-social:hover {
-  background: var(--cor-primaria);
+  background: #307427;
   transform: translateY(-2px);
 }
 

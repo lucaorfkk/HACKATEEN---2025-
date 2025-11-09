@@ -1,7 +1,3 @@
-/* ===== CONTATO.JS - Funções específicas da página de contato =====
-   Incluir este arquivo APENAS na página contato.html
-   <script src="contato.js"></script> */
-
 document.addEventListener('DOMContentLoaded', function() {
     const formularioContato = document.getElementById('formulario-contato');
     

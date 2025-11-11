@@ -1,7 +1,3 @@
-/* ===== DASHBOARD.JS - Funções específicas do Dashboard =====
-   Incluir este arquivo APENAS na página dashboard.html
-   <script src="dashboard.js"></script> */
-
 let dadosDashboard = {
     emissoesTotais: 1247.5,
     metaMensal: 78,

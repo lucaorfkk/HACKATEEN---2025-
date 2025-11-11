@@ -1,7 +1,3 @@
-/* ===== SOBRE.JS - Funções específicas da página sobre =====
-   Incluir este arquivo APENAS na página sobre.html
-   <script src="sobre.js"></script> */
-
 // Animação da timeline
 document.addEventListener('DOMContentLoaded', function() {
     const itensTimeline = document.querySelectorAll('.item-timeline');

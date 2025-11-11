@@ -1,5 +1,3 @@
-/* ===== SERVICOS.JS - Carrossel Moderno e FAQ ===== */
-
 class CarouselNovo {
   constructor(containerId) {
     this.container = document.getElementById(containerId);

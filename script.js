@@ -1,10 +1,8 @@
-// ===== FUNÇÃO PARA TOGGLE DO MENU MOBILE =====
 function alternarMenuMobile() {
     const menuNavegacao = document.getElementById('menu-navegacao');
     menuNavegacao.classList.toggle('mostrar');
 }
 
-// ===== FECHAR MENU MOBILE AO CLICAR EM UM LINK =====
 document.addEventListener('DOMContentLoaded', function() {
     const linksNavegacao = document.querySelectorAll('nav a');
     const menuNavegacao = document.getElementById('menu-navegacao');
